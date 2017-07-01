@@ -1,0 +1,122 @@
+@import 'common.css';
+@import 'global.css';
+
+.index-header{
+    display: block;
+    height: 42px;
+    position: fixed;
+    top: 0;
+    left: 180px;
+    background-color: #0099CC;
+    width: 100%;
+    padding-left:15px;
+    color:#fff;
+    position: relative;
+    .header-left{
+        display: inline-block;
+        width: 130px;
+        height: 42px;
+        line-height: 42px;
+        padding-right: 10px;
+        border-right: 1px solid #17B6EE;
+    }
+    .theme{
+        // padding-left: 15px;
+        display: inline-block;
+        height: 42px;
+        line-height: 42px;
+        width: 500px;
+        .themeChild{
+            text-align: center;
+            display: inline-block;
+            width: 60px;
+            height: 22px;
+            line-height: 22px;
+        }
+        .themeChild:nth-child(1){
+            border-right:1px solid #2FABD5;
+        }
+        .themeChild:nth-child(2){
+            width: 80px;
+        }
+    }
+    .index-login-box{
+        position: absolute;
+        right: 0;
+        top:0;
+        // background-color: red;
+        right:195px;
+        display: inline-block;
+        height: 42px;
+        width: 200px;
+        text-align: center;
+        color:#888888;
+        .iconfont{
+            color: white;
+        }
+        #drop3{
+            height: 42px;
+            line-height: 15px;
+        }
+        #drop3:hover{
+            .iconfont{
+                color:#0099CC;
+            }
+
+        }
+        .dropdown-menu{
+            .indexLoginInput{
+                display: inline-block;
+                background-color: #fff;
+                width: 50px;
+                border:0;
+            }
+        }
+        .indexLoginLi{
+            line-height: 28px;
+        }
+        .indexLoginButton{
+            display: inline-block;
+            height: 28px;
+            line-height: 28px;
+            width: 100%;
+        }
+    }
+}
+
+.index-body-left{
+    width: 180px;
+    position: fixed;
+    top:0;
+    left:0;
+    .index-body-left-head{
+        display: inline-block;
+        width: 100%;
+        height: 42px;
+        background-color: #0084B0;
+        color:#fff;
+        line-height: 42px;
+        padding-left:15px;
+        padding-right:15px;
+        .indexLeftSpan{
+            float:left;
+        }
+        .iconfont{
+            float:right;
+        }
+    }
+    .indexLeftBodyLi{
+        line-height: 28px;
+        margin-left:5px;
+    }
+    
+}
+
+.indexBody{
+    width: 100%;
+    height: 100%;
+    // background-color: red;
+    position: fixed;
+    left: 180px;
+    top:42px;
+}

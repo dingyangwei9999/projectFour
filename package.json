@@ -1,7 +1,7 @@
 {
-  "name": "p",
+  "name": "tan90",
   "version": "1.0.0",
-  "description": "",
+  "description": "angela框架项目",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,5 +11,16 @@
     "url": "https://github.com/bjjProject.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "body-parser": "^1.17.2",
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "jquery": "^3.2.1",
+    "node-sass": "^4.5.3"
+  }
 }
