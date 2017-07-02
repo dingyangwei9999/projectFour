@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
+    <script src="../libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="../libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../libs/angular/angular.min.js"></script>
+    <script src="../libs/angular-ui/angular-ui-router.min.js"></script>
+    <script src="../controllers/Bound/common.js"></script>
+</head>
+<body ng-app = "indexApp" ng-controller="indexController">
+    <div class="index-header">
+        <div class="header-left">
+            <i class="iconfont icon-shouye"></i>
+            <span>tan90零售系统</span>
+        </div>
+        <div class="theme">
+            <span class="themeChild" ng-bind="features.totalFeatures"></span>
+            <span class="themeChild" ng-bind="features.childFeatures"></span>
+        </div>
+        <div class="index-login-box">
+            <ul class="nav navbar-nav navbar-right" >
+                <li id="fat-menu"  class="dropdown">
+                    <a id="drop3" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                        <i class="iconfont icon-shezhi"></i>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="drop3">
+                        <li class="indexLoginLi">
+                            <span>账号：</span>
+                            <input class="indexLoginInput" disabled ng-model="account.name">
+                        </li>
+                        <li class="indexLoginLi">
+                            <span>店名:</span>
+                            <input class="indexLoginInput" disabled ng-model="account.shopName">
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li class="indexLoginLi"><botton class="indexLoginButton">退出登录</botton></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+            
+    </div>
+    <div class="index-body-left">
+        <div class="index-body-left-head">
+            <span class="indexLeftSpan">功能列表</span>
+            <i class="iconfont icon-suoyougongnengshouqi"></i>
+        </div>
+        <div class="index-body-left-list">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+                                产品库管理
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body">
+                            <ul>
+                                <li class="indexLeftBodyLi indexLeftBodyLi1">商品资料</li>
+                                <li class="indexLeftBodyLi indexLeftBodyLi1">商品分类</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                采购管理
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body">
+                            <ul>
+                                <li class="indexLeftBodyLi">采购单</li>
+                                <li class="indexLeftBodyLi">供应商</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                收货管理
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body">
+                            <ul>
+                                <li class="indexLeftBodyLi">收货单</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFour">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                入库
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body">
+                            <ul>
+                                <a href="#/inbound"><li class="indexLeftBodyLi">入库清单</li></a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFive">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                上架管理
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body">
+                            <ul>
+                                <li class="indexLeftBodyLi">上架清单</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingSix">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                收银系统
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body">
+                            <ul>
+                                <li class="indexLeftBodyLi">进入收银系统</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="indexBody">
+        <div data-ui-view=""></div>
+    </div>
+    <script type="text/javascript">
+        var indexApp = angular.module('indexApp', ['ui.router','commonApp']);
+
+        indexApp.controller('indexController', ['$scope', '$http', function($scope, $http){
+            // 此处可发起ajax请求或读取本地存储，将不同板块写入
+            $scope.features = {
+                totalFeatures: '商品',
+                childFeatures: '商品分类',
+                name:'bjjbjj',
+                shopName:'tan90'
+            }
+            $scope.account={
+                name:'bjjbjj',
+                shopName:'tan90'
+            }
+        }])
+        indexApp.config(function($stateProvider, $urlRouterProvider){
+        $stateProvider
+        .state("inbound",{
+            url:"/inbound",
+            templateUrl:"../controllers/Bound/inbound.html",
+            controller:'studentController'
+        })
+    })
+    indexApp.controller('studentController',['$scope','$http',function($scope,$http){
+        // $scope.username = 'dfsdf'
+    }])
+    </script>
+</body>
+</html>
