@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
     <link rel="stylesheet" href="../font/iconfont.css">
+    <link rel="stylesheet" href="../css/inbound.css">
     <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
     <script src="../libs/jquery/jquery-2.1.1.min.js"></script>
     <script src="../libs/bootstrap/js/bootstrap.min.js"></script>
@@ -156,7 +157,7 @@
         </div>
     </div>
     <div class="indexBody">
-        <div data-ui-view=""></div>
+        <div data-ui-view="" class="indexchildren"></div>
     </div>
     <script type="text/javascript">
         var indexApp = angular.module('indexApp', ['ui.router','mainApp']);
@@ -179,8 +180,9 @@
         .state("inbound",{
             url:"/inbound",
             templateUrl:"../controllers/Bound/inbound.html",
-            controller:'studentController'
+            controller:'inBound'
         })
+        
     })
 
     </script>

@@ -6,15 +6,30 @@ mainApp.value('lan', function(){
     }
     window.localStorage.setItem("lan", lan);
     return lan;
-    })
-mainApp.controller('studentController',['$scope','$http','lan',function($scope,$http,lan){
+})
+mainApp.value('baseUrl','http://localhost:888/')
+mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$http,lan,baseUrl){
     
     
     var attr = [{productId:'123',qrCode:'54654645632',productName:'蛮牛MAX COOL无糖口香糖（蜂蜜薄荷）',
         purchasingCost:'5.5',salePrice:'8.8',Unit:'2',category:'3',supplier: '2',
-        }]
+        },{productId:'123',qrCode:'54654645632',productName:'蛮牛MAX COOL无糖口香糖（蜂蜜薄荷）',
+        purchasingCost:'5.5',salePrice:'8.8',Unit:'2',category:'3',supplier: '2',
+    }]
+    
      $scope.dataset = attr;
-                
+     $scope.change = function(){
+        $scope.myChange = true;
+        
+     }           
+    $scope.hideing = function(){
+        $scope.myChange = false;
+    }
+    $scope.test = function(){
+        $http.post(baseUrl+'inbound').success(function(res){
+            console.log(res)
+        })
+    }
     
     // $scope.lan = lan();
     // $scope.cols = attr.columns ? attr.columns.split(',') : [];
