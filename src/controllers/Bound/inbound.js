@@ -13,11 +13,12 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
     
     var attr = [{productId:'123',qrCode:'54654645632',productName:'蛮牛MAX COOL无糖口香糖（蜂蜜薄荷）',
         purchasingCost:'5.5',salePrice:'8.8',Unit:'2',category:'3',supplier: '2',
-        },{productId:'123',qrCode:'54654645632',productName:'蛮牛MAX COOL无糖口香糖（蜂蜜薄荷）',
+        },{productId:'321',qrCode:'54654645632',productName:'蛮牛MAX COOL无糖口香糖（蜂蜜薄荷）',
         purchasingCost:'5.5',salePrice:'8.8',Unit:'2',category:'3',supplier: '2',
     }]
     
      $scope.dataset = attr;
+     $scope.datasetorigin = attr;
      $scope.change = function(){
         $scope.myChange = true;
         
@@ -30,6 +31,23 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
             console.log(res)
         })
     }
+    $scope.search = function(){
+        // productId = $scope.productId;
+        // inboundId = $scope.inboundId;
+        // outboundId = $scope.inboundId;
+         var _dataset = [];
+            for(var index in $scope.datasetorigin){
+                var obj = $scope.datasetorigin[index];
+                var _result = (
+                    (!$scope.productId|| obj.productId.indexOf($scope.productId) > -1)
+                    && (!$scope.age || obj.age.indexOf($scope.age) > -1)
+                );
+                if(_result){
+                    _dataset.push(obj);
+                }
+            }
+            $scope.dataset = _dataset;
+        }
     
     // $scope.lan = lan();
     // $scope.cols = attr.columns ? attr.columns.split(',') : [];
