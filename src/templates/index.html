@@ -12,7 +12,7 @@
     <script src="../libs/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../libs/angular/angular.min.js"></script>
     <script src="../libs/angular-ui/angular-ui-router.min.js"></script>
-    <script src="../controllers/Bound/common.js"></script>
+    <script type="text/javascript" src="../controllers/Bound/inbound.js"></script>
 </head>
 <body ng-app = "indexApp" ng-controller="indexController">
     <div class="index-header">
@@ -159,7 +159,7 @@
         <div data-ui-view=""></div>
     </div>
     <script type="text/javascript">
-        var indexApp = angular.module('indexApp', ['ui.router','commonApp']);
+        var indexApp = angular.module('indexApp', ['ui.router','mainApp']);
 
         indexApp.controller('indexController', ['$scope', '$http', function($scope, $http){
             // 此处可发起ajax请求或读取本地存储，将不同板块写入
@@ -182,9 +182,7 @@
             controller:'studentController'
         })
     })
-    indexApp.controller('studentController',['$scope','$http',function($scope,$http){
-        // $scope.username = 'dfsdf'
-    }])
+
     </script>
 </body>
 </html>

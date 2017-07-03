@@ -41,7 +41,7 @@ globalapp.config(["$httpProvider", function ($httpProvider) {
     };
     $httpProvider.defaults.headers.post={
         'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'
-    }    
+    }   
     $httpProvider.interceptors.push(function ($rootScope, $q) {
         return {
             'request': function (config) {
