@@ -8,10 +8,10 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 exports.Register = function(app) {
     
-    //读取地址
+    //读取入库表
     app.post('/inbound',urlencodedParser, function(request, response){
-        DB.fetch('tproduct',{productID:123}, function(result){
-            //第一个表名
+        DB.fetch('inbound',{}, function(result){
+            //第一个参数表名，第二个为数据库的键
             response.send(result);
         })
     })

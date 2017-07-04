@@ -3,29 +3,36 @@
     
 <div>
     <!--搜索操作-->
-    <div class="bs-example" data-example-id="simple-table">
+    <div class="bb-from">
     <div class="form-group">
-        <div class="col-sm-3"><label>productID：<input type="text" ng-model="productID"></label></div>
-        <div class="col-sm-3"><label>inboundId：<input type="text" ng-model="inboundId"></label></div>
-        <div class="col-sm-3"><label>outboundId：<input type="text" ng-model="outboundId"></label></div>
-        <div class="col-sm-3"><input type="button" class="btn btn-info" value="搜索" ng-click="search()"></div>
+        <div class="col-sm-3"><label>qrCode：<input type="text" ng-model="qrCode"></label></div>
+        <div class="col-sm-3"><label>inboundID：<input type="text" ng-model="inboundID"></label></div>
+        <div class="col-sm-3"><label>outboundID：<input type="text" ng-model="outboundId"></label></div>
+        <div class="col-sm-3"><input type="button" class="btn btn-info bon" value="搜索" ng-click="search()"></div>
     </div>  
     </div>
+
 <!--显示数据-->
-    <div  class="table-responsive">
-        <table class="table table-bordered">
+    <div class="bs-example bb-main" data-example-id="simple-table">
+        <table class="table table-bordered table-responsive">
             <thead>
                 <tr>
-                    <th ng-repeat="(key, value) in dataset[0]" ng-bind="key"></th>
-                    <th>编辑</th>
+                    <th ng-repeat="(key, value) in dataset[0]" ng-bind="key" class="tb1"></th>
+                    <th class="tb1">是否入库</th>
+                    <th class="tb1">编辑 | 删除</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="obj in dataset">
                     <td ng-repeat="(key, value) in obj" ng-bind="value"></td>
-                    <td><input type="button" class="btn btn-info" value="编辑" ng-click="change()" />
-                        <input type="button" class="btn btn-info btn-danger" value="删除" ng-click="delete()">
-                    </td>
+                    <td><span class="tb1">
+                       <input type="button" class="btn btn-success" value="在库存" ng-click="inbound()" ng-show="outbound">
+                       <input type="button" class="btn btn-warning" value="已入库" ng-click="oubound()" ng-show="!outbound">
+                    </span></td>
+                   <td><span class="tb2">
+                       <input type="button" class="btn btn-info" value="编辑" ng-click="change()">
+                       <input type="button" class="btn btn-info btn-danger" value="删除" ng-click="delete()">
+                    </span></td> 
                 </tr>
             </tbody>
         </table>             
@@ -34,16 +41,81 @@
 
 <div class="myChange" ng-show="myChange">
 <div class="panel panel-primary">
+    <!--顶部-->
   <div class="panel-heading">Panel heading without title <i class="close" ng-click="hideing()">X</i></div>
-  <span ng-repeat="obj in dataset">
-<input type="text" ng-repeat="(key, value) in obj" placeholder="" ng-class="value" ng-model="value">
-</span>
+    <!--内容-->
+  <div class="bd-content">
+    
+     <!--实际到货数量-->
+     <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">reserveNum</span>
+      <input type="text" class="form-control" placeholder="reserveNum" aria-describedby="basic-addon1" v-model="reserveNum">
+    </div>
+
+    <!--入库数量-->
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">inbound</span>
+      <input type="text" class="form-control" placeholder="inbound" aria-describedby="basic-addon1" v-model="inbound">
+    </div>
+
+    <!--入库时间-->
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">inboundTime</span>
+      <input type="date" class="form-control" placeholder="inboundTime" aria-describedby="basic-addon1" v-model="inboundTime">
+    </div>
+
+
+    <!--出库数量-->
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">outbound</span>
+      <input type="text" class="form-control" placeholder="outbound" aria-describedby="basic-addon1" v-model="outbound">
+    </div>
+
+    <!--出库时间-->
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">outboundTime</span>
+      <input type="date" class="form-control" placeholder="outboundTime" aria-describedby="basic-addon1" v-model="outboundTime">
+    </div>
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+</div>
+
+<div>
+    <!--分页-->
+<div class="bon-right" data-example-id="pagination-sizing">
+    <nav aria-label="...">
+      <ul class="pagination pagination-lg">
+        <li><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">...</a></li>
+        <li><a href="#" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>
+      </ul>
+    </nav>
+</div>
+
+
+
+
+
+
 
 </div>
 
 
-</div>
-</div>
-<input type="button" value="测试" ng-click="test()">
-</div>
 

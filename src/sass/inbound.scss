@@ -1,10 +1,10 @@
 @import 'common.css';
 @import 'global.css';
 .inbound-main{
-    width: 1200px;
-    overflow: hidden;
+    width: 100%;
     position: relative;
 }
+
 .myChange{
     width: 500px;
     position: fixed;
@@ -20,4 +20,32 @@
     opacity:1 !important;
     z-index: 2000;
     font-style: normal;
+}
+.tb2{
+    width: 120px;
+    display: block;
+    height: 50px;
+}
+.tb1{
+    background: #17B6EE;
+    color: #FFF;
+}
+tr:hover{
+    background: #ccc;
+}
+.bon{
+    
+}
+.bb-main{
+    width: 1096px;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+.bb-from{
+    overflow: hidden;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+.bon-right{
+    margin-left: 700px;
 }

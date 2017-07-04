@@ -9,19 +9,25 @@ mainApp.value('lan', function(){
 })
 mainApp.value('baseUrl','http://localhost:888/')
 mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$http,lan,baseUrl){
+    //页面加载的时候请求数据
     $http.post(baseUrl+'inbound').success(function(res){
         var attr = res;
         $scope.dataset = attr;
         $scope.datasetorigin = attr;
         })
     
-    // var attr = [{productId:'123',qrCode:'54654645632',productName:'蛮牛MAX COOL无糖口香糖（蜂蜜薄荷）',
-    //     purchasingCost:'5.5',salePrice:'8.8',Unit:'2',category:'3',supplier: '2',
-    //     },{productId:'321',qrCode:'54654645632',productName:'蛮牛MAX COOL无糖口香糖（蜂蜜薄荷）',
-    //     purchasingCost:'5.5',salePrice:'8.8',Unit:'2',category:'3',supplier: '2',
-    // }]
+    //入库
+    $scope.outbound = true;
+    $scope.inbound = function(){
+    this.outbound = false;
+    }
+    $scope.oubound = function(){
+    this.outbound = true;
+    }
+
+
     
-     
+     //隐藏和显示编辑框
      $scope.change = function(){
         $scope.myChange = true;
         
@@ -29,19 +35,19 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
     $scope.hideing = function(){
         $scope.myChange = false;
     }
-    $scope.test = function(){
-        
-    }
+   //搜索
     $scope.search = function(){
         // productId = $scope.productId;
         // inboundId = $scope.inboundId;
         // outboundId = $scope.inboundId;
+        console.log(666)
          var _dataset = [];
             for(var index in $scope.datasetorigin){
                 var obj = $scope.datasetorigin[index];
                 var _result = (
-                    (!$scope.productID|| obj.productID[$scope.productID] > -1)
-                    && (!$scope.age || obj.age.indexOf($scope.age) > -1)
+                    (!$scope.inboundID || obj.inboundID.indexOf($scope.inboundID) > -1)
+                    && (!$scope.qrCode || obj.qrCode.indexOf($scope.qrCode) > -1)
+                    && (!$scope.outboundID || obj.outboundID.indexOf($scope.outboundID) > -1)
                 );
                 if(_result){
                     _dataset.push(obj);
