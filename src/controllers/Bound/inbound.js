@@ -1,4 +1,4 @@
-var mainApp = angular.module('mainApp',[]);
+var mainApp = angular.module('mainApp',['globalapp']);
 mainApp.value('lan', function(){
     var lan = window.localStorage.getItem("lan");
     if(!lan){
@@ -64,15 +64,17 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
             return false;
         }
         var obbj = {
-                    inboundID:$scope.inboundID,
-                    reserveNum:$scope.reserveNum,
-                    inbounds:$scope.inbounds,
-                    inboundTime:$scope.inboundTime,
-                    outbounds:$scope.outbounds,
-                    outboundTime:$scope.outboundTime,
-                    writedown:$scope.writedown
+                    "inboundID":$scope.inboundID,
+                    "reserveNum":$scope.reserveNum,
+                    "inbounds":$scope.inbounds,
+                    "inboundTime":$scope.inboundTime,
+                    "outbounds":$scope.outbounds,
+                    "outboundTime":$scope.outboundTime,
+                    "writedown":$scope.writedown
                     }
-        
+        $http({method:"POST",url:baseUrl+'changebound',data:obbj}).success(function(res){
+            console.log(666)
+        })
     }
 
 

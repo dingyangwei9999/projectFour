@@ -18,10 +18,13 @@ exports.Register = function(app) {
 
     //修改入库表
     app.post('/changebound',urlencodedParser, function(request, response){
-        DB.fetch('inbound',{}, function(result){
+        console.log(request.params)
+        var obbj = request.body;
+        console.log(obbj)
+        // DB.editsupplier('inbound',obbj, function(result){
             //第一个参数表名，第二个为数据库的键
-            response.send(result);
-        })
+            response.send('result');
+        // })
     })
     
 }

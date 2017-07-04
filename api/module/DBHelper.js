@@ -23,5 +23,26 @@ module.exports = {
         });
         //关闭连接
         connection.end();
-    }
+    },
+    // editsupplier: function(_collection, data,callback){
+	// 	openSql();
+	// 	connection.connect();
+	// 	console.log(data)
+	// 	// var userGetSql = "SELECT * from supplier where supplierName = '"+data.supplierName+"'";
+	// 	var userGetSql = 'UPDATE inbound SET ID = ?,inboundID= ? WHERE productID = ?';
+	// 	var userAddSql_Params = [data.ID, data.supplierName,data.indexid];
+	// 	connection.query(userGetSql, userAddSql_Params,function(err, res) {
+	// 		// console.log(rows)
+	// 		if (err) {
+	// 			console.log('[UPDATE ERROR] - ', err.message);
+	// 			callback(false)
+	// 			return false;
+	// 		}else{
+	// 			callback(true)
+	// 		}
+	// 		console.log(res)
+	// 		connection.end();
+	// 	});
+
+	// },
 }
