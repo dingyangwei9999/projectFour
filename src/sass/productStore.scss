@@ -1,0 +1,278 @@
+@import 'common.css';
+@import 'global.css';
+.productStore{
+    border-left:1px solid #ddd;
+    // height: 500px;
+}
+.productStoreTop{
+    height: 40px;
+    width: 100%;
+    margin-bottom:5px;
+    margin-top:5px;
+    .productStoreTopLeft{
+        display: inline-block;
+        width: 300px;
+        // background-color: blue;
+        float: left;
+        padding-left:15px;
+        height: 40px;
+        line-height: 40px;
+        .btn{
+            margin-right:10px;
+            height: 30px;
+            line-height: 18px;
+            text-align: center;
+        }
+    }
+    .productStoreTopRight{
+        display: inline-block;
+        // background-color: red;
+        width: 850px;
+        float: right;
+        height: 40px;
+        line-height: 40px;
+        .productStoreTopRightBox1, .productStoreTopRightBox2{
+            display: inline-block;
+            width: 150px;
+            margin-right:10px;
+            .form-control{
+                height: 35px;
+                line-height: 18px;
+                // option{
+                //     height: 30px;
+                //     line-height: 30px;
+                //     font-size:8px;
+                // }
+            }
+        }
+        .productStoreTopRightBox1:nth-child(1){
+            width: 200px;
+        }
+        .form-inline{
+            display: inline-block;
+            width: 400px;
+            margin-left: 10px;
+            .form-group{
+                display: inline-block;
+                height: 30px;
+                line-height: 18px;
+                .form-control{
+                    height: 30px;
+                }
+            }
+            .btn{
+                display: inline-block;
+                height: 30px;
+                line-height: 18px;
+            }
+        }
+    }
+}
+
+.productStoreBody{
+    border-top:2px solid #ddd;
+    // border-left:1px solid #ddd;
+    height: 586px;
+    thead{
+        background-color: #D5E9ED;
+    }
+    .tbodyRetext{
+        height: 25px;
+        line-height: 10px;
+    }
+}
+
+.productStoreFooter{
+    background-color: #f5f5f5;
+    border-top:1px solid #ddd;
+    width: 100%;
+    position: fixed;
+    bottom:0;
+    height: 40px;
+    line-height: 40px;
+    .productStoreFooterLeft{
+        display: inline-block;
+        width: 400px;
+        float: left;
+        padding-left:15px;
+    }
+    .productStoreFooterRight{
+        display: inline-block;
+        width: 450px;
+        float:right;
+        .btn{
+            height: 30px;
+            line-height: 18px;
+            margin-right:10px;
+            margin-left:10px;
+        }
+    }
+}
+
+
+.addProductStore{
+    border-top:2px solid #ddd;
+    display: block;
+    position: fixed !important;
+    width: 500px;
+    height: 508px;
+    top:131px;
+    right:-500px;
+    background-color: #fff;
+    border:1px solid #ddd;
+    position: relative;
+
+    .form-inline{
+        padding:10px;
+    }
+    .addProductStoreBottom{
+        height: 40px;
+        line-height: 40px;
+        position: absolute;
+        bottom:0;
+        left:0;
+        // padding-top:40px;
+        border-top:1px solid #ddd;
+        width: 100%;
+        text-align: right;
+        background-color: #f5f5f5;
+        .btn{
+            height: 30px;
+            line-height: 18px;
+        }
+        .btn-primary{
+            margin-left:20px;
+            margin-right:20px;
+            width: 100px;
+        }
+        
+    }
+    .addProductStoreLevel{
+        height: 40px;
+        margin-bottom:5px;
+        margin-top:5px;
+        width: 450px;
+        padding-top:40px;
+        // background-color: pink;
+        .addProductStoreLevelSpan{
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+            width: 120px;
+            text-align: center;
+        }
+        .form-control{
+            width: 300px;
+        }
+    }
+
+}
+.addUnit{
+    position:fixed;
+    top:131px;
+    right:-500px;
+    background-color: #fff;
+    border:1px solid #ddd;
+    height: 508px;
+    width: 500px;
+    .addUnitTop{
+        height: 40px;
+        line-height: 40px;
+        border-bottom:1px solid #ddd;
+        .addUnitTopLeft{
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+            width: 200px;
+            float:left;
+            padding-left:15px;
+        }
+        .addUnitTopRight{
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+            width: 20px;
+            float:right;
+            font-size:22px;
+        }
+    }
+    .addUnitMid{
+        height: 60px;
+        width: 100%;
+        line-height: 60px;
+        .accountAddUnitMid{
+            display: inline-block;
+            height: 60px;
+            line-height: 60px;
+            padding-left:15px;
+        }
+        .form-inline{
+            display: inline-block;
+            float:right;
+            margin-right: 5px;
+        }
+    }
+}
+
+
+
+.category{
+    position:fixed;
+    top:131px;
+    right:-500px;
+    background-color: #fff;
+    border:1px solid #ddd;
+    height: 508px;
+    width: 500px;
+    .categoryTop{
+        height: 40px;
+        line-height: 40px;
+        border-bottom:1px solid #ddd;
+        .categoryTopLeft{
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+            width: 200px;
+            float:left;
+            padding-left:15px;
+        }
+        .categoryTopRight{
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+            width: 20px;
+            float:right;
+            font-size:22px;
+        }
+    }
+    .categoryMid{
+        height: 60px;
+        width: 100%;
+        line-height: 60px;
+        .accountcategoryMid{
+            display: inline-block;
+            height: 60px;
+            line-height: 60px;
+            padding-left:15px;
+        }
+        .form-inline{
+            display: inline-block;
+            float:right;
+            margin-right: 5px;
+        }
+    }
+}     
+
+.productStoreBody{
+    width: 1098px;
+    overflow:hidden;
+    // background-color: pink;
+    overflow-x:scroll;
+    height: 546px;
+    .table{
+        width: 1200px;
+        //  width:1200px;
+        //  height:800px;
+        //  overflow-x:scroll;
+    }
+}

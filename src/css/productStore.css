@@ -1,0 +1,294 @@
+@import url(common.css);
+@import url(global.css);
+.productStore {
+  border-left: 1px solid #ddd;
+}
+
+.productStoreTop {
+  height: 40px;
+  width: 100%;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.productStoreTop .productStoreTopLeft {
+  display: inline-block;
+  width: 300px;
+  float: left;
+  padding-left: 15px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.productStoreTop .productStoreTopLeft .btn {
+  margin-right: 10px;
+  height: 30px;
+  line-height: 18px;
+  text-align: center;
+}
+
+.productStoreTop .productStoreTopRight {
+  display: inline-block;
+  width: 850px;
+  float: right;
+  height: 40px;
+  line-height: 40px;
+}
+
+.productStoreTop .productStoreTopRight .productStoreTopRightBox1, .productStoreTop .productStoreTopRight .productStoreTopRightBox2 {
+  display: inline-block;
+  width: 150px;
+  margin-right: 10px;
+}
+
+.productStoreTop .productStoreTopRight .productStoreTopRightBox1 .form-control, .productStoreTop .productStoreTopRight .productStoreTopRightBox2 .form-control {
+  height: 35px;
+  line-height: 18px;
+}
+
+.productStoreTop .productStoreTopRight .productStoreTopRightBox1:nth-child(1) {
+  width: 200px;
+}
+
+.productStoreTop .productStoreTopRight .form-inline {
+  display: inline-block;
+  width: 400px;
+  margin-left: 10px;
+}
+
+.productStoreTop .productStoreTopRight .form-inline .form-group {
+  display: inline-block;
+  height: 30px;
+  line-height: 18px;
+}
+
+.productStoreTop .productStoreTopRight .form-inline .form-group .form-control {
+  height: 30px;
+}
+
+.productStoreTop .productStoreTopRight .form-inline .btn {
+  display: inline-block;
+  height: 30px;
+  line-height: 18px;
+}
+
+.productStoreBody {
+  border-top: 2px solid #ddd;
+  height: 586px;
+}
+
+.productStoreBody thead {
+  background-color: #D5E9ED;
+}
+
+.productStoreBody .tbodyRetext {
+  height: 25px;
+  line-height: 10px;
+}
+
+.productStoreFooter {
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 40px;
+  line-height: 40px;
+}
+
+.productStoreFooter .productStoreFooterLeft {
+  display: inline-block;
+  width: 400px;
+  float: left;
+  padding-left: 15px;
+}
+
+.productStoreFooter .productStoreFooterRight {
+  display: inline-block;
+  width: 450px;
+  float: right;
+}
+
+.productStoreFooter .productStoreFooterRight .btn {
+  height: 30px;
+  line-height: 18px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.addProductStore {
+  border-top: 2px solid #ddd;
+  display: block;
+  position: fixed !important;
+  width: 500px;
+  height: 508px;
+  top: 131px;
+  right: -500px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  position: relative;
+}
+
+.addProductStore .form-inline {
+  padding: 10px;
+}
+
+.addProductStore .addProductStoreBottom {
+  height: 40px;
+  line-height: 40px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid #ddd;
+  width: 100%;
+  text-align: right;
+  background-color: #f5f5f5;
+}
+
+.addProductStore .addProductStoreBottom .btn {
+  height: 30px;
+  line-height: 18px;
+}
+
+.addProductStore .addProductStoreBottom .btn-primary {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 100px;
+}
+
+.addProductStore .addProductStoreLevel {
+  height: 40px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  width: 450px;
+  padding-top: 40px;
+}
+
+.addProductStore .addProductStoreLevel .addProductStoreLevelSpan {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  width: 120px;
+  text-align: center;
+}
+
+.addProductStore .addProductStoreLevel .form-control {
+  width: 300px;
+}
+
+.addUnit {
+  position: fixed;
+  top: 131px;
+  right: -500px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  height: 508px;
+  width: 500px;
+}
+
+.addUnit .addUnitTop {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #ddd;
+}
+
+.addUnit .addUnitTop .addUnitTopLeft {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  width: 200px;
+  float: left;
+  padding-left: 15px;
+}
+
+.addUnit .addUnitTop .addUnitTopRight {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  width: 20px;
+  float: right;
+  font-size: 22px;
+}
+
+.addUnit .addUnitMid {
+  height: 60px;
+  width: 100%;
+  line-height: 60px;
+}
+
+.addUnit .addUnitMid .accountAddUnitMid {
+  display: inline-block;
+  height: 60px;
+  line-height: 60px;
+  padding-left: 15px;
+}
+
+.addUnit .addUnitMid .form-inline {
+  display: inline-block;
+  float: right;
+  margin-right: 5px;
+}
+
+.category {
+  position: fixed;
+  top: 131px;
+  right: -500px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  height: 508px;
+  width: 500px;
+}
+
+.category .categoryTop {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #ddd;
+}
+
+.category .categoryTop .categoryTopLeft {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  width: 200px;
+  float: left;
+  padding-left: 15px;
+}
+
+.category .categoryTop .categoryTopRight {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  width: 20px;
+  float: right;
+  font-size: 22px;
+}
+
+.category .categoryMid {
+  height: 60px;
+  width: 100%;
+  line-height: 60px;
+}
+
+.category .categoryMid .accountcategoryMid {
+  display: inline-block;
+  height: 60px;
+  line-height: 60px;
+  padding-left: 15px;
+}
+
+.category .categoryMid .form-inline {
+  display: inline-block;
+  float: right;
+  margin-right: 5px;
+}
+
+.productStoreBody {
+  width: 1098px;
+  overflow: hidden;
+  overflow-x: scroll;
+  height: 546px;
+}
+
+.productStoreBody .table {
+  width: 1200px;
+}
