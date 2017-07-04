@@ -30,9 +30,8 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
      //隐藏和显示编辑框
      $scope.change = function(){
         $scope.myChange = true;
-        
      } 
-               
+
     $scope.hideing = function(){
         $scope.myChange = false;
     }

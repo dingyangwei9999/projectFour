@@ -48,6 +48,14 @@
     
 <form class="form-horizontal" role="form">
 
+    <!--入库ID-->
+  <div class="form-group">
+    <label for="firstname" class="col-sm-2 control-label">inboundID：</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control bo-right" id="firstname" placeholder="入库单号" v-model="inboundID">
+    </div>
+  </div>
+
     <!--实际到货的数量-->
   <div class="form-group">
     <label for="firstname" class="col-sm-2 control-label">reserveNum：</label>
@@ -97,13 +105,21 @@
     </div>
   </div>
 
+  <!--出库时间-->
+  <div class="form-group">
+    <label for="lastname" class="col-sm-2 control-label">writedown：</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control bo-right" id="lastname" placeholder="备注" v-model="writedown">
+    </div>
+  </div>
+
 
 
   <!--确认和取消-->
   <div class="form-group">
     <div class="btn-group bdn-top" role="group">
-        <button type="button" class="btn btn-primary bn-left">确认</button>
-        <button type="button" class="btn btn-danger bn-right">取消</button>
+        <button type="button" class="btn btn-primary bn-left" ng-click="">确认</button>
+        <button type="button" class="btn btn-danger bn-right" ng-click="hideing()">取消</button>
       </div>
   </div>
 </form>
