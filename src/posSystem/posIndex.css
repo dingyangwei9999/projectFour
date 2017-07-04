@@ -1,0 +1,311 @@
+.pos_container{
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	min-width:640px;
+}
+
+.pos_container .pos_title{
+	width:100%;
+	height:20px;
+	font-size:14px;
+	border-bottom:3px solid #AFCDF2;
+	background:-webkit-gradient(linear,0 0,0 bottom,from(#99CCFF),to(#EDF4FD));
+}
+
+.pos_container .pos_title img{
+	width:20px;
+	display:inline;
+	margin-right:20px;
+	margin-left:5px;
+}
+
+.pos_container .main_top{
+	width:100%;
+	padding:10px;
+	box-sizing:border-box;
+	background:#E3EFFF;
+	border-bottom:2px solid #AFCDF2;
+
+}
+.pos_container .main_top .main_top_barcode{
+	float:left;
+	margin-left:20px;
+	font-size:18px;
+	position:relative;
+}
+
+.pos_container .main_top .main_top_reciptNum{
+	float:right;
+	margin-right:20px;
+	font-size:18px;
+}
+.pos_container .main_top .main_top_barcode h4,.pos_container .main_top .main_top_reciptNum h4{
+	display:inline;
+	font-weight:520;
+}
+.pos_container .main_top .main_top_barcode input{
+	border:1px solid #AFCDF2;
+	height:24px;
+	width:240px;
+}
+.pos_container .main_top .main_top_barcode i{
+	position:absolute;
+	display:block;
+	height:26px;
+	width:20px;
+	top:2px;
+	right:0px;
+	color:#0000D9;
+	z-index:100;
+}
+.pos_container .main_top .main_top_barcode i:hover{
+	background-color:#FFA64D;
+	cursor:pointer;
+}
+
+.pos_container .main_detail{
+	width:100%;
+	overflow:scroll;
+	height:460px;
+	padding:1px;
+}
+.pos_container .main_detail::-webkit-scrollbar-track{
+	background-color:#618CC5;
+}
+.pos_container .main_detail table{
+	width:150%;
+	text-align:center;
+	border-collapse: collapse;
+	border:1px solid #A2BAD9;
+	border-spacing: 0;
+	font-size:16px;
+}
+// .pos_container .main_detail .table-bordered{
+// 	width:inherit;
+// 	// display:inline-block;
+// 	overflow-x:scroll;
+// }
+.pos_container .main_footer{
+	width:100%;
+	padding:1px;
+	border:1px solid #AFCDF2;
+	background-color:#E3EFFF;
+	overflow:hidden;
+}
+.clear::after{
+	content:'';
+	clear:both;
+	display:block;
+	height:0;
+	overflow: hidden;
+	visibility: hidden;
+}
+.pos_container .main_footer .main_price{
+	width:75%;
+	float:left;
+	box-sizing:border-box;
+	padding:1px;
+	border:1px solid #AFCDF2;
+	position:relative;
+	height:200px;
+	background:-webkit-linear-gradient(left,#8080FF,#C0C0C0);
+}
+.pos_container .main_footer .main_price h1{
+	font-size:70px;
+	margin-bottom:20px;
+	line-height:130px;
+	color:black;
+}
+.pos_container .main_footer .main_price h3{
+	font-size:30px;
+	color:black;
+}
+.pos_container .main_footer .main_price h5{
+	position:absolute;
+	bottom:20%;
+	right:0;
+	width:20%;
+	font-size: 16px;
+	color:#000080;
+	background:#C0C0C0;
+}
+.pos_container .main_footer .main_price_detail{
+	float:left;
+	box-sizing:border-box;
+	border:1px solid #AFCDF2;
+	width:25%;
+	height:200px;
+	background-color:#E3EFFF;
+	padding:20px 5px 0 20px;
+}
+.pos_container .main_footer .main_price_detail div{
+	font-size:24px;
+	margin-bottom:5px;
+	font-weight:bold;
+
+}
+.pos_container .main_footer .main_price_detail input{
+	text-align:right;
+	font-size:24px;
+	font-weight:bold;
+	width:40%;
+	height:24px;
+}
+.pos_container .main_footer .main_price_detail div:last-child button{
+	background-color:#9FCBEF;
+	border:1px solid #6098DF;
+	color:#15428B;
+	border-radius:2px;
+	padding:5px 3px;
+	width:41%;
+	font-size:18px;
+	margin-left:19%;
+	margin-top:10px;
+}
+.pos_container .main_footer .main_price_detail .discount{
+	background-color:#9FCBEF;
+	border:1px solid #6098DF;
+	color:#15428B;
+	border-radius:2px;
+	
+	font-size:18px;
+	margin-left:5px;
+}
+.pos_container .main_footer .main_price_detail div:last-child button:last-child{
+	width:24%;
+	margin-left:0;
+}
+
+.pos_container .footer_vipmsg{
+	width:100%;
+	height:60px;
+	background-color:#E3EFFF;
+}
+.pos_container .footer_vipmsg .vipmsg{
+	float:left;
+	width:75%;
+	position:relative;
+	font-size:14px;
+}
+.pos_container .footer_vipmsg .vipmsg .integral{
+	margin-top:10px;
+	// display:inline-block;
+}
+.pos_container .footer_vipmsg .vipmsg .vip_name{
+	margin-right:30px;
+}
+.pos_container .footer_vipmsg .vipmsg .integral .integral_total{
+	margin-left:20px;
+}
+.pos_container .footer_vipmsg .vipmsg .vip_manage input{
+	width:100px;
+	border:none;
+}
+.pos_container .footer_vipmsg .vipmsg .vip_manage>div{
+	display:inline-block;
+	border:1px solid #ccc;
+	background-color:white;
+}
+.pos_container .footer_vipmsg .vipmsg .vip_manage .btn_sure{
+	padding:1px 5px;
+}
+.pos_container .footer_vipmsg .vipmsg .vip_manage .btn_sure:hover{
+	background-color:#FFA64D;
+	cursor:pointer;
+}
+.pos_container .footer_vipmsg .vipmsg .vip_manage .btn_add{
+	padding:1px 5px;
+}
+.pos_container .footer_vipmsg .vipmsg .vip_manage .btn_add:hover{
+	background-color:#FFA64D;
+	cursor:pointer;
+}
+.pos_container .footer_vipmsg .vipmsg .vip_handle{
+	float:right;
+	padding-top:5px;
+}
+.pos_container .footer_vipmsg .vipmsg .repertory{
+	position:absolute;
+	bottom:0;
+	right:40px;
+}
+.pos_container .footer_vipmsg .vip_handle button{
+	background-color:#9FCBEF;
+	border:1px solid #6098DF;
+	color:#15428B;
+	border-radius:2px;
+	// padding:3px;
+	font-size:14px;
+	margin-top:4px;
+}
+.pos_container .footer_vipmsg .vip_handle button:hover{
+	background-color:#E3EFFF;
+}
+.pos_container .btn_discount{
+	position:fixed;
+	width:300px;
+	height:240px;
+	left:50%;
+	top:50%;
+	margin-left:-150px;
+	margin-top:-100px;
+	z-index:100;
+	background-color:#E3EFFF;
+	border:1px solid #8080FF;
+	padding:2px;
+	box-sizing:border-box;
+}
+.pos_container .btn_discount .discount_title{
+	color:#8080FF;
+	font-szie:16px;
+	line-height:30px;
+	padding:0 10px;
+}
+.pos_container .btn_discount .discount_title span{
+	display:inline-block;
+	float:right;
+}
+.pos_container .btn_discount .discount_middle{
+	height:182px;
+	border:1px solid #9FCBEF;
+	padding:10px;
+}
+.pos_container .btn_discount .discount_middle .discount_in{
+	height:160px;
+	border:1px solid #9FCBEF;
+}
+.pos_container .btn_discount .discount_middle .discount_in h3{
+	padding:0 10px;
+	line-height:30px;
+	color:#8080FF;
+	border-bottom:1px solid #9FCBEF;
+}
+.pos_container .btn_discount .discount_middle .discount_in>div{
+	padding:20px 10px 20px 20px;
+}
+.pos_container .btn_discount .discount_middle .discount_in p{
+	line-height:30px;
+	font-size:16px;
+	font-weight:bold;
+	color:black;
+}
+.pos_container .btn_discount .discount_middle .discount_in input{
+	width:125px;
+	height:16px;
+	text-align:right;
+
+.pos_container .btn_discount .discount_middle .btn_back button{
+	margin-right:20px;
+}
+
+// .pos_container .shade{
+// 	position:fixed;
+// 	left:0;
+// 	top:0;
+// 	width:inherit;
+// 	height:inherit;
+// 	background-color:black;
+// 	opacity:.4;
+// 	z-index:50;
+// }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tan90收银系统</title>
+	<!-- <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="../css/posCommon.css">
+	<link rel="stylesheet" href="./posIndex.css">
+	<script src="../libs/jquery/jquery-2.1.1.min.js"></script>
+	<script src="../libs/angular/angular.min.js"></script>
+	<script src="../libs/angular/angular.global.js"></script>
+	<script src="./posbody.js"></script>
+</head>
+<body ng-app="posSystem" ng-controller="posController">
+	<posbody></posbody>
+	<script type="text/javascript">
+		var pos = angular.module('posSystem',['posBody']);
+		pos.controller('posController',['$scope','$http',function($scope,$http){
+			// console.log($scope)
+		}])
+	</script>
+</body>
+</html>
