@@ -21,10 +21,10 @@ exports.Register = function(app) {
         console.log(request.params)
         var obbj = request.body;
         console.log(obbj)
-        // DB.editsupplier('inbound',obbj, function(result){
+        DB.changebound('inbound',obbj, function(result){
             //第一个参数表名，第二个为数据库的键
             response.send('result');
-        // })
+        })
     })
     
 }

@@ -28,10 +28,12 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
     }
 
 
-    
+    $scope.productID;
      //隐藏和显示编辑框
-    $scope.change = function(){
+    $scope.change = function($index){
         $scope.myChange = true;
+        return $scope.productID = $scope.dataset[$index].productID;
+        
      } 
     $scope.hideing = function(){
         $scope.myChange = false;
@@ -39,6 +41,8 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
     
     //修改
     $scope.oright = function(){
+        
+        
         if(!$scope.inboundID){
            alert('请输入单号');
             return false;
@@ -64,6 +68,7 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
             return false;
         }
         var obbj = {
+                    "productID":$scope.productID,
                     "inboundID":$scope.inboundID,
                     "reserveNum":$scope.reserveNum,
                     "inbounds":$scope.inbounds,
