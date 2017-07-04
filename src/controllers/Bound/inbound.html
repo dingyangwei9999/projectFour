@@ -52,7 +52,7 @@
   <div class="form-group">
     <label for="firstname" class="col-sm-2 control-label">inboundID：</label>
     <div class="col-sm-7">
-      <input type="text" class="form-control bo-right" id="firstname" placeholder="入库单号" v-model="inboundID">
+      <input type="text" class="form-control bo-right" id="firstname" placeholder="入库单号" ng-model="inboundID">
     </div>
   </div>
 
@@ -60,7 +60,7 @@
   <div class="form-group">
     <label for="firstname" class="col-sm-2 control-label">reserveNum：</label>
     <div class="col-sm-7">
-      <input type="text" class="form-control bo-right" id="firstname" placeholder="实际到货的数量" v-model="reserveNum">
+      <input type="text" class="form-control bo-right" id="firstname" placeholder="实际到货的数量" ng-model="reserveNum">
     </div>
   </div>
 
@@ -68,13 +68,13 @@
   <div class="form-group">
     <label for="lastname" class="col-sm-2 control-label">inbound：</label>
     <div class="col-sm-7">
-      <input type="text" class="form-control bo-right" id="lastname" placeholder="入库数量" v-model="inbound">
+      <input type="text" class="form-control bo-right" id="lastname" placeholder="入库数量" ng-model="inbounds">
     </div>
   </div>
 
   <!--类型-->
   <div class="form-group">
-    <label for="lastname" class="col-sm-2 control-label">inbound：</label>
+    <label for="lastname" class="col-sm-2 control-label">type：</label>
     <select class="se-left">
         <option value="sunfuck">日用品</option>
         <option value="bilibli">电器</option>
@@ -85,7 +85,7 @@
   <div class="form-group">
     <label for="lastname" class="col-sm-2 control-label">inboundTime：</label>
     <div class="col-sm-7">
-      <input type="date" class="form-control bo-right" id="lastname" placeholder="入库时间" v-model="inboundTime">
+      <input type="date" class="form-control bo-right" id="lastname" placeholder="入库时间" ng-model="inboundTime">
     </div>
   </div>
 
@@ -93,15 +93,24 @@
   <div class="form-group">
     <label for="lastname" class="col-sm-2 control-label">outbound：</label>
     <div class="col-sm-7">
-      <input type="text" class="form-control bo-right" id="lastname" placeholder="出库数量" v-model="outbound">
+      <input type="text" class="form-control bo-right" id="lastname" placeholder="出库数量" ng-model="outbounds">
     </div>
+  </div>
+
+  <!--种类-->
+  <div class="form-group">
+    <label for="lastname" class="col-sm-2 control-label">Unit：</label>
+    <select class="se-left">
+        <option value="xl">瓶</option>
+        <option value="xiang">箱</option>
+    </select>
   </div>
 
   <!--出库时间-->
   <div class="form-group">
     <label for="lastname" class="col-sm-2 control-label">outboundTime：</label>
     <div class="col-sm-7">
-      <input type="date" class="form-control bo-right" id="lastname" placeholder="出库时间" v-model="outboundTime">
+      <input type="date" class="form-control bo-right" id="lastname" placeholder="出库时间" ng-model="outboundTime">
     </div>
   </div>
 
@@ -109,16 +118,24 @@
   <div class="form-group">
     <label for="lastname" class="col-sm-2 control-label">writedown：</label>
     <div class="col-sm-7">
-      <input type="text" class="form-control bo-right" id="lastname" placeholder="备注" v-model="writedown">
+      <input type="text" class="form-control bo-right" id="lastname" placeholder="备注" ng-model="writedown">
     </div>
   </div>
-
+  
+  <!--种类-->
+  <div class="form-group">
+    <label for="lastname" class="col-sm-2 control-label">Unit：</label>
+    <select class="se-left">
+        <option value="xl">瓶</option>
+        <option value="xiang">箱</option>
+    </select>
+  </div>
 
 
   <!--确认和取消-->
   <div class="form-group">
     <div class="btn-group bdn-top" role="group">
-        <button type="button" class="btn btn-primary bn-left" ng-click="">确认</button>
+        <button type="button" class="btn btn-primary bn-left" ng-click="oright()">确认</button>
         <button type="button" class="btn btn-danger bn-right" ng-click="hideing()">取消</button>
       </div>
   </div>

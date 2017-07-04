@@ -15,5 +15,13 @@ exports.Register = function(app) {
             response.send(result);
         })
     })
+
+    //修改入库表
+    app.post('/changebound',urlencodedParser, function(request, response){
+        DB.fetch('inbound',{}, function(result){
+            //第一个参数表名，第二个为数据库的键
+            response.send(result);
+        })
+    })
     
 }

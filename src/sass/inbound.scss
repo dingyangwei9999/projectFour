@@ -35,7 +35,9 @@ tr:hover{
 }
 .bd-content{
     padding: 10px 10px 10px 30px;
-    
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 400px;
 }
 .bb-main{
     width: 1096px;
