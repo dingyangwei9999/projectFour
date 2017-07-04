@@ -31,7 +31,8 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
      $scope.change = function(){
         $scope.myChange = true;
         
-     }           
+     } 
+               
     $scope.hideing = function(){
         $scope.myChange = false;
     }
