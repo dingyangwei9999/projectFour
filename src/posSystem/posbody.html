@@ -49,7 +49,7 @@
 						<td></td>
 						<td>￥{{obj.salePrice}}</td>
 						<td>{{discountRate}}</td>
-						<td>￥{{(obj.discountPrice * discountRate/100).toFixed(2)}}</td>
+						<td>￥{{(obj.salePrice * discountRate/100).toFixed(2)}}</td>
 						<td>{{obj.qty}}</td>
 						<td>￥{{(obj.totalPrice * discountRate/100).toFixed(2)}}</td>
 						<td></td>
@@ -64,14 +64,14 @@
 		</div>
 		<div class="main_footer clear">
 			<div class="main_price">
-				<h1>共: <span>￥{{totalPrice}}</span></h1>
+				<h1>共: <span>￥{{settlePrice}}</span></h1>
 				<h3>商品数量 : <span>{{qty}}</span></h3>
 				<h5>折扣: ￥<strong ng-bind="reci"></strong></h5>
 			</div>
 			<div class="main_price_detail">
-				<div>应收:&nbsp;<input type="text" ng-value="totalPrice" readonly/></div>
+				<div>应收:&nbsp;<input type="text" ng-value="settlePrice" readonly/></div>
 				<div>收款:&nbsp;<input type="text" ng-model="receipt"/><button class="discount" ng-click="priceOnSale()">打折(/)</button></div>
-				<div>找零:&nbsp;<input type="text" ng-value="(receipt - totalPrice).toFixed(2)" readonly/></div>
+				<div>找零:&nbsp;<input type="text" ng-value="(receipt - settlePrice).toFixed(2)" readonly/></div>
 				<div>
 					<button ng-click="clearing()">结算打印(F4)</button>
 					<button ng-click="salesReturn">退货(R)</button>

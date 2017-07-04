@@ -18,7 +18,8 @@ posApp.directive('posbody',['$http','baseUrl',function($http,baseUrl){
 			scope.discountRate = scope.discountRate || '100';
 			// scope.discountPrice = scope.discountPrice || '0.00';
 			scope.receipt = 0;
-
+			scope.settlePrice = scope.settlePrice || '0.00';
+			var acount = 0;
 			//条形码改变事件
 			scope.barCodeChange = function(){
 				if(!scope.barCode){
@@ -30,7 +31,7 @@ posApp.directive('posbody',['$http','baseUrl',function($http,baseUrl){
 					return;
 				}
 				var qrCode = scope.barCode;
-				// scope.goodslist=[];
+				acount++;
 				$http({
 					method:'get',
 					url:baseUrl + 'fetch',
@@ -42,7 +43,7 @@ posApp.directive('posbody',['$http','baseUrl',function($http,baseUrl){
 						return;
 					}
 					var obj;
-					
+
 					var data = res.data.message[0];
 					data.qty = 1;
 					data.salePrice = data.salePrice.toFixed(2);
@@ -50,14 +51,20 @@ posApp.directive('posbody',['$http','baseUrl',function($http,baseUrl){
 					data.discountPrice = data.totalPrice;
 					scope.totalPrice = Number(data.totalPrice); //总价
 					scope.discountPrice = Number(data.discountPrice).toFixed(2);
-					// console.log(scope.totalPrice,scope.discountPrice)
+					
 					scope.goodslist = scope.goodslist || [];
+					if(acount === 1){
+						// console.log(111)
+						scope.settlePrice = (data.totalPrice * scope.rate/100).toFixed(2);
+					}
 					scope.qty = data.qty;
 					
 					if(scope.goodslist[0]){
 						
-						
-						scope.goodslist.forEach(function(item){
+						scope.settlePrice = 0;
+						scope.goodslist.forEach(function(item,idx){
+							// console.log(item)
+							
 							scope.totalPrice += Number(item.totalPrice);
 							scope.qty += item.qty;
 							
@@ -66,20 +73,34 @@ posApp.directive('posbody',['$http','baseUrl',function($http,baseUrl){
 								item.totalPrice = (Number(item.qty) * Number(item.salePrice)).toFixed(2);
 								
 								item.discountPrice = item.totalPrice;
-								// console.log(item.discountPrice,item.totalPrice)
+								
 								obj = Object.assign({},item);
 							}
+							// console.log(scope.settlePrice)
+							scope.settlePrice = Number(scope.settlePrice) + Number(item.qty) * Number(item.salePrice);
 							
 						})
-
-						scope.totalPrice = scope.totalPrice.toFixed(2);
+						//用来临时存放总价
+						scope.price = scope.settlePrice;
+						scope.reci = (scope.settlePrice - (scope.settlePrice * scope.rate/100)).toFixed(2);
+						scope.settlePrice = (scope.settlePrice * scope.rate/100).toFixed(2);
+						scope.totalPrice = (scope.totalPrice * scope.rate/100).toFixed(2);
 					}
 
 					if(!obj){
+						// scope.settlePrice = (data.totalPrice * scope.rate/100).toFixed(2);
 						scope.goodslist.push(data);
+						scope.settlePrice = 0;
+						scope.goodslist.forEach(function(item){
+							scope.settlePrice = Number(scope.settlePrice) + Number(item.qty) * Number(item.salePrice);
+						})
+						//用来临时存放总价
+						scope.price = scope.settlePrice;
+						scope.reci = (scope.settlePrice - (scope.settlePrice * scope.rate/100)).toFixed(2);
+						scope.settlePrice = (scope.settlePrice * scope.rate/100).toFixed(2);
 					}
-					//用来临时存放总价
-					scope.price = scope.totalPrice;
+
+					
 					
 				})
 			}
@@ -124,11 +145,12 @@ posApp.directive('posbody',['$http','baseUrl',function($http,baseUrl){
 				var total = Number(scope.totalPrice) + Number(scope.reci);
 				scope.totalPrice = (total*(scope.rate/100)).toFixed(2);
 				scope.reci = (total - total*(scope.rate/100)).toFixed(2);
+				scope.settlePrice = (scope.settlePrice * scope.rate/100).toFixed(2);
 				scope.disco = false;
 				scope.shade = false;
 
 				if(scope.rate == '100'){
-					scope.totalPrice = scope.price;
+					scope.settlePrice = scope.price.toFixed(2);
 				}
 			}
 
