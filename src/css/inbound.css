@@ -38,6 +38,10 @@ tr:hover {
   background: #ccc;
 }
 
+.bd-content {
+  padding: 10px 10px 10px 30px;
+}
+
 .bb-main {
   width: 1096px;
   overflow: hidden;
@@ -52,4 +56,23 @@ tr:hover {
 
 .bon-right {
   margin-left: 700px;
+}
+
+.bo-right {
+  margin-left: 43px;
+}
+
+.bn-left {
+  width: 150px;
+  margin-right: 50px;
+  margin-left: 50px !important;
+  color: #5bc0de;
+}
+
+.bn-right {
+  width: 150px;
+}
+
+.bdn-top {
+  padding-top: 20px;
 }

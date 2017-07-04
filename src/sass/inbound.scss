@@ -33,7 +33,8 @@
 tr:hover{
     background: #ccc;
 }
-.bon{
+.bd-content{
+    padding: 10px 10px 10px 30px;
     
 }
 .bb-main{
@@ -48,4 +49,19 @@ tr:hover{
 }
 .bon-right{
     margin-left: 700px;
+}
+.bo-right{
+    margin-left: 43px;
+}
+.bn-left{
+    width: 150px;
+    margin-right: 50px;
+    margin-left: 50px !important;
+    color:#5bc0de;
+}
+.bn-right{
+    width: 150px;
+}
+.bdn-top{
+    padding-top: 20px;
 }

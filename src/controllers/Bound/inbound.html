@@ -46,42 +46,58 @@
     <!--内容-->
   <div class="bd-content">
     
-     <!--实际到货数量-->
-     <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1">reserveNum</span>
-      <input type="text" class="form-control" placeholder="reserveNum" aria-describedby="basic-addon1" v-model="reserveNum">
+<form class="form-horizontal" role="form">
+
+    <!--实际到货的数量-->
+  <div class="form-group">
+    <label for="firstname" class="col-sm-2 control-label">reserveNum：</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control bo-right" id="firstname" placeholder="实际到货的数量" v-model="reserveNum">
     </div>
+  </div>
 
-    <!--入库数量-->
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1">inbound</span>
-      <input type="text" class="form-control" placeholder="inbound" aria-describedby="basic-addon1" v-model="inbound">
+  <!--入库数量-->
+  <div class="form-group">
+    <label for="lastname" class="col-sm-2 control-label">inbound：</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control bo-right" id="lastname" placeholder="入库数量" v-model="inbound">
     </div>
+  </div>
 
-    <!--入库时间-->
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1">inboundTime</span>
-      <input type="date" class="form-control" placeholder="inboundTime" aria-describedby="basic-addon1" v-model="inboundTime">
+ <!--入库时间-->
+  <div class="form-group">
+    <label for="lastname" class="col-sm-2 control-label">inboundTime：</label>
+    <div class="col-sm-7">
+      <input type="date" class="form-control bo-right" id="lastname" placeholder="入库时间" v-model="inboundTime">
     </div>
+  </div>
 
-
-    <!--出库数量-->
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1">outbound</span>
-      <input type="text" class="form-control" placeholder="outbound" aria-describedby="basic-addon1" v-model="outbound">
+<!--出库数量-->
+  <div class="form-group">
+    <label for="lastname" class="col-sm-2 control-label">outbound：</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control bo-right" id="lastname" placeholder="出库数量" v-model="outbound">
     </div>
+  </div>
 
-    <!--出库时间-->
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1">outboundTime</span>
-      <input type="date" class="form-control" placeholder="outboundTime" aria-describedby="basic-addon1" v-model="outboundTime">
+  <!--出库时间-->
+  <div class="form-group">
+    <label for="lastname" class="col-sm-2 control-label">outboundTime：</label>
+    <div class="col-sm-7">
+      <input type="date" class="form-control bo-right" id="lastname" placeholder="出库时间" v-model="outboundTime">
     </div>
+  </div>
 
 
 
-
-
-
+  <!--确认和取消-->
+  <div class="form-group">
+    <div class="btn-group bdn-top" role="group">
+        <button type="button" class="btn btn-primary bn-left">确认</button>
+        <button type="button" class="btn btn-danger bn-right">取消</button>
+      </div>
+  </div>
+</form>
 
 
 
