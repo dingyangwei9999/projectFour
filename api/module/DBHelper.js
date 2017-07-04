@@ -30,11 +30,12 @@ module.exports = {
 		connection.connect();
 		console.log(data)
 		// var userGetSql = "SELECT * from inbound where supplierName = '"+data.supplierName+"'";
-		var userGetSql = 'UPDATE inbound SET inboundID = ?, reserveNum = ? , inbound = ? ,outbound = ?  WHERE productID = ?';
+		var userGetSql = 'UPDATE inbound SET inboundID = ?, reserveNum = ? , inbound = ? ,outbound = ? ,writedown = ?  WHERE productID = ?';
 		var userAddSql_Params = [data.inboundID,
                                 data.reserveNum,
                                 data.inbounds,
                                 data.outbounds,
+                                data.writedown,
                                 data.productID,
                                 ];
 		connection.query(userGetSql, userAddSql_Params,function(err, res) {

@@ -80,6 +80,8 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
         $http({method:"POST",url:baseUrl+'changebound',data:obbj}).success(function(res){
             console.log(666)
         })
+        alert('编辑成功')
+        window.location.reload();
     }
 
 
