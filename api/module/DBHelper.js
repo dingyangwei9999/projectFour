@@ -26,12 +26,33 @@ module.exports = {
         //关闭连接
         connection.end();
     },
+    //增加入库
+    addbound:function(_collection, data,callback){
+        openSql();
+		connection.connect();
+        var delid= data.productID; 
+        var  userAddSql = `INSERT INTO inbound(id,name,age) VALUES(${delid},?,?)`;
+        var  userAddSql_Params = ['Wilson', 55];
+        connection.query(userAddSql, userAddSql_Params,function(err, res) {
+			if (err) {
+				console.log('[UPDATE ERROR] - ', err.message);
+				callback(false)
+				return false;
+			}else{
+				callback(true)
+			}
+			console.log(res)
+			connection.end();
+		});
+
+	},
+
+
+
     //修改入库
     changebound: function(_collection, data,callback){
 		openSql();
 		connection.connect();
-		console.log(data)
-		// var userGetSql = "SELECT * from inbound where supplierName = '"+data.supplierName+"'";
 		var userGetSql = 'UPDATE inbound SET inboundID = ?, reserveNum = ? , inbound = ? ,outbound = ? ,writedown = ?  WHERE productID = ?';
 		var userAddSql_Params = [data.inboundID,
                                 data.reserveNum,
