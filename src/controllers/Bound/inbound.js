@@ -28,6 +28,9 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
     this.outbound = true;
     }
 
+    $scope.add = function(){
+    alert('请期待下一个版本~~~')
+    }
 
     $scope.productID;
      //隐藏和显示编辑框
