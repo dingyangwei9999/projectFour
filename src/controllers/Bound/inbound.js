@@ -20,7 +20,7 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
     //入库
     $scope.outbound = true;
     $scope.inbound = function(){
-    alert('出库成功!!!!')
+    alert('你的商品上架成功!!!!')
     this.outbound = false;
     }
     $scope.oubound = function(){
