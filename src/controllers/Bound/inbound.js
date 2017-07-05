@@ -84,6 +84,7 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
            alert('请输入出库时间');
             return false;
         }
+        console.log($scope.inboundTime)
         var obbj = {
                     "productID":$scope.productID,
                     "inboundID":$scope.inboundIDs,
