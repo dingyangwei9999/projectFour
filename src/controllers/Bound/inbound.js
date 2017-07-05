@@ -7,6 +7,7 @@ mainApp.value('lan', function(){
     window.localStorage.setItem("lan", lan);
     return lan;
 })
+
 mainApp.value('baseUrl','http://localhost:888/')
 mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$http,lan,baseUrl){
     //页面加载的时候请求数据
@@ -39,10 +40,23 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
         $scope.myChange = false;
     }
     
+    //删除
+    $scope.delete = function($index){
+        
+        $scope.productID = $scope.dataset[$index].productID;
+        var PID = {"productID":$scope.productID}
+        $http({method:"POST",url:baseUrl+'delbound',data:PID}).success(function(res){
+            console.log(666)
+        })
+        alert('删除')
+        window.location.reload();
+    }
+
+
+
+
     //修改
     $scope.oright = function(){
-        
-        
         if(!$scope.inboundID){
            alert('请输入单号');
             return false;
@@ -90,9 +104,6 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
 
    //搜索
     $scope.search = function(){
-        // productId = $scope.productId;
-        // inboundId = $scope.inboundId;
-        // outboundId = $scope.inboundId;
         console.log(666)
          var _dataset = [];
             for(var index in $scope.datasetorigin){
@@ -100,7 +111,9 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
                 var _result = (
                     (!$scope.inboundID || obj.inboundID.indexOf($scope.inboundID) > -1)
                     && (!$scope.qrCode || obj.qrCode.indexOf($scope.qrCode) > -1)
-                    && (!$scope.outboundID || obj.outboundID.indexOf($scope.outboundID) > -1)
+                    && (!$scope.otboundID || obj.outboundID.indexOf($scope.otboundID) > -1)
+                    && (!$scope.productName || obj.productName.indexOf($scope.productName) > -1)
+                    && (!$scope.productID || obj.productID.indexOf($scope.productID) > -1)
                 );
                 if(_result){
                     _dataset.push(obj);

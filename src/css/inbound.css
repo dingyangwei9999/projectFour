@@ -45,6 +45,10 @@ tr:hover {
   height: 400px;
 }
 
+.lab-left {
+  padding-left: 17px !important;
+}
+
 .bb-main {
   width: 1096px;
   overflow: hidden;

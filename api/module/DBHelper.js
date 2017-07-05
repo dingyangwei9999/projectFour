@@ -10,9 +10,10 @@ function openSql(){
         database:'tan90'
 	});
 }
+
+//查询所有
 module.exports = {
     fetch:function(table,data,callback){
-        console.log(table,data)
         openSql();
         connection.connect();
         //查询
@@ -25,6 +26,7 @@ module.exports = {
         //关闭连接
         connection.end();
     },
+    //修改入库
     changebound: function(_collection, data,callback){
 		openSql();
 		connection.connect();
@@ -52,4 +54,37 @@ module.exports = {
 		});
 
 	},
+    //删除
+    delinbound:function(_collection, data, _callback){
+         openSql();
+        connection.connect();
+        console.log(data)
+        var delid= data.productID;
+         var  userDelSql = `DELETE FROM inbound WHERE productID = ${delid}` ;
+        //?
+        connection.query(userDelSql,function (err, result) {
+                if(err){
+                  console.log('[DELETE ERROR] - ',err.message);
+                  return;
+                }       
+            _callback(result)
+               console.log('-------------DELETE--------------');
+              
+               
+        });
+         
+        connection.end();
+    },
+
+
+
+
+
+
+
+
+
+
+
+
 }
