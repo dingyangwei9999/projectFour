@@ -1,0 +1,25 @@
+@import url(common.css);
+@import url(global.css);
+.inbound-main {
+  width: 1200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.myChange {
+  width: 500px;
+  position: fixed;
+  margin-left: -16%;
+  margin-top: -205px;
+  z-index: 2000;
+  left: 50%;
+  top: 50%;
+  overflow: hidden;
+}
+
+.close {
+  color: #FFF !important;
+  opacity: 1 !important;
+  z-index: 2000;
+  font-style: normal;
+}

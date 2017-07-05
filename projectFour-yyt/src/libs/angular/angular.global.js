@@ -41,7 +41,7 @@ globalapp.config(["$httpProvider", function ($httpProvider) {
     };
     $httpProvider.defaults.headers.post={
         'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'
-    }    
+    }   
     $httpProvider.interceptors.push(function ($rootScope, $q) {
         return {
             'request': function (config) {
@@ -57,7 +57,7 @@ globalapp.config(["$httpProvider", function ($httpProvider) {
                 $('.sk-spinner-three-bounce.sk-spinner, .main-mask').removeClass('item-hidden');
                 config.url = $.basurl() + config.url;
                 config.params = $.extend(config.params, { '_': Math.random() });
-                // console.log(config);
+                console.log(config);
                 return config || $q.when(config);
             },
             'requestError': function (rejection) {
@@ -68,7 +68,7 @@ globalapp.config(["$httpProvider", function ($httpProvider) {
                 return response || $q.when(response);
             },
             'responseError': function (response) {
-                alert(response.status + ' - ' + response.statusText + '<br/>请求路径：<br/>' + response.config.url, '请求错误');
+                $.alert(response.status + ' - ' + response.statusText + '<br/>请求路径：<br/>' + response.config.url, '请求错误');
                 $('.sk-spinner-three-bounce.sk-spinner, .main-mask').addClass('item-hidden');
 
                 return $q.reject(response);

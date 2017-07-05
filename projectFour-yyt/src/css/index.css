@@ -1,7 +1,5 @@
 @import url(common.css);
 @import url(global.css);
-@import url(supplier.css);
-@import url(purchase.css);
 .index-header {
   display: block;
   height: 42px;
@@ -9,7 +7,7 @@
   top: 0;
   left: 180px;
   background-color: #0099CC;
-  width: 100%;
+  width: 85.9%;
   padding-left: 15px;
   color: #fff;
   position: relative;
@@ -51,7 +49,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  right: 195px;
+  right: 13px;
   display: inline-block;
   height: 42px;
   width: 200px;
@@ -95,6 +93,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  height: 100%;
 }
 
 .index-body-left .index-body-left-head {
@@ -119,17 +118,19 @@
 .index-body-left .indexLeftBodyLi {
   line-height: 28px;
   margin-left: 5px;
-  cursor: pointer;
-}
-
-.index-body-left .indexLeftBodyLi a {
-  color: #000;
 }
 
 .indexBody {
-  width: 86%;
+  width: 100%;
   height: 100%;
   position: fixed;
   left: 180px;
   top: 42px;
+  overflow: hidden;
+}
+
+.indexBody .indexchildren {
+  width: 1100px;
+  overflow: hidden;
+  overflow-x: scroll;
 }
