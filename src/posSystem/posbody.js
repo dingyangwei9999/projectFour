@@ -1,4 +1,4 @@
-var posApp = angular.module('posBody',[]);
+var posApp = angular.module('posBody',['globalapp']);
 
 
 var baseUrl = posApp.value('baseUrl','http://localhost:888/');
@@ -153,33 +153,56 @@ posApp.directive('posbody',['$http','baseUrl',function($http,baseUrl){
 					scope.settlePrice = scope.price.toFixed(2);
 				}
 			}
-
+			scope.printMenu = false;
 			//结算打印
 			scope.clearing = function(){
 				if(!scope.qty){
 					return;
 				}
-				var orderNow = new Date(),
-					ymd = orderNow.toLocaleDateString(),//年-月-日
-					hms = orderNow.toLocaleTimeString(),//时-分-秒
-					odd = scope.serailNum,//订单编号
-					goodslist = scope.goodslist,//商品列表
-					totalPrice = scope.totalPrice,//总价
-					dis = scope.rate,//折扣
-					disPrice = totalPrice*dis;//折后价
+				var orderNow = new Date();
+				scope.ymd = orderNow.toLocaleDateString();//年-月-日
+				scope.hms = orderNow.toLocaleTimeString();//时-分-秒
+				scope.odd = scope.serailNum;//订单编号
+				scope.goods = scope.goodslist;//商品列表
+				scope.printPrice = scope.settlePrice;//总价
+				scope.printDis = scope.rate;//折扣
+				//scope.printDisPrice = scope.settlePrice*scope.printDis;//折后价
+				scope.printMenu = true;
 				
+			}
+			//打印小票
+			scope.print = function(){
 
-				scope.barCode = '';
-				scope.goodslist = [];
-				scope.totalPrice =  '0.00';
-				scope.qty = 0;
-				scope.receipt = 0;
-				var num = window.localStorage.getItem('num') || '1';
-				// console.log(num)
-				num = parseInt(num) + 1;
-				window.localStorage.setItem('num',num.toString());//设置当天单数
-				barCode();
+				$http({
+					method:'POST',
+					url:baseUrl + 'order',
+					data:{ymd:scope.ymd,hms:scope.hms,odd:scope.odd,goods:JSON.stringify(scope.goods),
+						printPrice:scope.printPrice,printDis:scope.printDis}
+					
+				}).then(function(res){
+					if(res.data.status){
+						scope.barCode = '';
+						scope.goodslist = [];
+						scope.settlePrice =  '0.00';
+						scope.qty = 0;
+						scope.receipt = 0;
+						scope.reci = '0.00'
+						var num = window.localStorage.getItem('num') || '1';
+						// console.log(num)
+						num = parseInt(num) + 1;
+						window.localStorage.setItem('num',num.toString());//设置当天单数
+						barCode();
 
+
+						scope.printMenu = false;
+					}else{
+						$.alert('打印失败');
+					}	
+				})
+			}
+			//取消订单
+			scope.cancel = function(){
+				scope.printMenu = false;
 			}
 			//添加会员按键
 			scope.addMember = function(){
@@ -198,9 +221,10 @@ posApp.directive('posbody',['$http','baseUrl',function($http,baseUrl){
 				hours.toString().length < 2 ? hours = ('0'+ hours) : hours;
 				min.toString().length < 2 ? min = ('0'+ min) : min;
 				currentTime = year+month+day;
-				window.localStorage.setItem('time',currentTime);
+				
 				//把时间存入本地  第二天流水号重新开始
 				if(time && time != currentTime){
+					window.localStorage.setItem('time',currentTime);
 					// window.localStorage.removeItem('num');
 					number = '1';
 				}

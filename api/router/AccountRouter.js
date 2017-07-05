@@ -24,6 +24,18 @@ exports.Register = function(app) {
                 
             })
     })
+    app.post('/order',urlencodedParser,function(request, response){
+            console.log(request.body)
+            // "{'{qrCode:qrCode}':''}""[]"
+            // console.log(request.query)
+            // console.log(typeof request.body.productId)
+            // console.log(request.body.productId)
+            DB.order('order',request.body,function(result) {
+                // console.log(result)
+                
+                response.send(ApiResult(true,result));
+            })
+    })
 
    
    

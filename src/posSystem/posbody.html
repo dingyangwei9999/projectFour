@@ -114,7 +114,30 @@
 	<div class="shade" style="position:fixed;left:0;top:0;width:inherit;height:inherit;background-color:black;opacity:.4;z-index:50;" ng-show="shade" ng-cloak>
 		
 	</div>
-	<div class="order">
-		<div class=""></div>
+	<div id="order" style="position:fixed;width:300px;left:50%;top:50%;margin-left:-150px;margin-top:-200px;z-index:200;background-color:#E3EFFF;border:1px solid #8080FF;padding-left:30px;box-sizing:border-box;" ng-show="printMenu" ng-cloak>
+		<div class="order_title" style="text-align: center;">
+			<h5>欢迎观临tan90度超市</h5>
+			<h5>购物小票为唯一退货凭证</h5>
+			<h5 style="margin-bottom:10px;">客服电话:030-23232323</h5>
+			日期:<span>{{ymd}}</span>&nbsp;&nbsp;<span>{{hms}}</span>&nbsp;&nbsp;机号:001<br/>
+			收银员:0001<br/>单号:<span>{{odd}}</span><br/>
+			货号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数量*单价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金额
+		</div>
+		<div class="order_body" style="border-top:1px dashed #8080FF;height:170px;margin-bottom:10px;border-bottom:1px dashed #8080FF;overflow:hidden;">
+			<ul>
+				<li ng-repeat="obj in goods">
+					<p style="white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{obj.productName}}</p>
+					<p><span>889898</span> <span style="margin-left:34px;">{{obj.qty}}</span>*<span>{{obj.salePrice}}</span> <span style="float:right;margin-right:10px;">{{obj.totalPrice}}</span></p>
+				</li>
+			</ul>
+		</div>
+		<div class="order_footer">
+			<p>总价   <span style="float:right;margin-right:10px;">{{printPrice}}</span></p>
+			<p>折扣率   <span style="float:right;margin-right:10px;color:red;">{{printDis}}%</span></p>
+			<p>优惠   <span style="float:right;margin-right:10px;color:red;">{{(printPrice - (printPrice*printDis/100).toFixed(2)).toFixed(2)}}</span></p>
+			<p>实收金额   <span style="float:right;margin-right:10px;">{{(printPrice*printDis/100).toFixed(2)}}</span></p>
+			<p style="margin:5px 0;text-align:center;"><button style="margin-right:20px;" ng-click="print()">打印凭条</button><button ng-click="cancel()">取消</button></p>
+			
+		</div>
 	</div>	
 </div>
