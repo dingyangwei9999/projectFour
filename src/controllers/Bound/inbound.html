@@ -10,8 +10,8 @@
        <div class="col-sm-3"><label>produName：<input type="text" ng-model="productName"></label></div>
        <div class="col-sm-3"><input type="button" class="btn btn-info bon" value="搜索" ng-click="search()"></div>
       <div class="col-sm-3"><label class="lab-left">qrCode：<input type="text" ng-model="qrCode"></label></div>
-       <div class="col-sm-3"><label>otboundID：<input type="text" ng-model="otboundID"></label></div>
-
+       <div class="col-sm-5"><label>otboundID：<input type="text" ng-model="otboundID"></label></div>
+        <div class="col-sm-3"><input type="button" class="btn btn-info" value="添加库存" ng-click="search()"></div>
     </div>  
     </div>
 
@@ -30,7 +30,7 @@
                     <td ng-repeat="(key, value) in obj" ng-bind="value"></td>
                     <td><span class="tb1">
                        <input type="button" class="btn btn-success" value="在库存" ng-click="inbound()" ng-show="outbound">
-                       <input type="button" class="btn btn-warning" value="已入库" ng-click="oubound()" ng-show="!outbound">
+                       <input type="button" class="btn btn-warning" value="已上架" ng-click="oubound()" ng-show="!outbound">
                     </span></td>
                    <td><span class="tb2">
                        <input type="button" class="btn btn-info" value="编辑" ng-click="change($index)">
@@ -45,7 +45,7 @@
 <div class="myChange" ng-show="myChange">
 <div class="panel panel-primary">
     <!--顶部-->
-  <div class="panel-heading">Panel heading without title <i class="close" ng-click="hideing()">X</i></div>
+  <div class="panel-heading">Change <i class="close" ng-click="hideing()">X</i></div>
     <!--内容-->
   <div class="bd-content">
     
