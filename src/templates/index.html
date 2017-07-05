@@ -9,13 +9,26 @@
     <link rel="stylesheet" type="text/css" href="../css/productStore.css">
     <link rel="stylesheet" href="../font/iconfont.css">
     <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/grounding.css">
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
+    <link rel="stylesheet" type="text/css" href="../css/personnel.css">
+    <link rel="stylesheet" href="../css/purchase.css">
+    <link rel="stylesheet" href="../css/supplier.css">
+    <link rel="stylesheet" href="../css/inbound.css">
+    <!--<link rel="stylesheet" href="../css/manifest.css">-->
+    <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap-datetimepicker.min.css">
     <script src="../libs/jquery/jquery-2.1.1.min.js"></script>
     <script src="../libs/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../libs/angular/angular.min.js"></script>
     <script src="../libs/angular-ui/angular-ui-router.min.js"></script>
     <script src="../controllers/productStoreControllers.js"></script>
     <script src="../libs/angular/angular.global.js"></script>
-    <script src="../controllers/indexController.js"></script>
+    <script src="../controllers/supplier.js"></script>
+    <script src="../controllers/purchase.js"></script>
+    <script type="text/javascript" src="../controllers/Bound/inbound.js"></script>
+    <script src="../libs/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../controllers/manifest.js"></script>
+    
 </head>
 <body ng-app = "indexApp">
     <div  ng-controller="indexController">   
@@ -44,7 +57,7 @@
                                 <input class="indexLoginInput" disabled ng-model="account.shopName">
                             </li>
                             <li role="separator" class="divider"></li>
-                            <li class="indexLoginLi"><botton class="indexLoginButton">退出登录</botton></li>
+                            <li class="indexLoginLi "><botton class="indexLoginButton btn" ng-click="indexLoginButton()">退出登录</botton></li>
                         </ul>
                     </li>
                 </ul>
@@ -87,8 +100,8 @@
                         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
                             <div class="panel-body">
                                 <ul>
-                                    <li class="indexLeftBodyLi">采购单</li>
-                                    <li class="indexLeftBodyLi">供应商</li>
+                                    <li class="indexLeftBodyLi"><a href="#/purchase" ng-click="cgglbjj()">采购单</a></li>
+                                    <li class="indexLeftBodyLi"><a href="#/supplier" ng-click="cgglgysbjj()">供应商</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -104,7 +117,7 @@
                         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
                             <div class="panel-body">
                                 <ul>
-                                    <li class="indexLeftBodyLi">收货单</li>
+                                    <li class="indexLeftBodyLi" ng-click="shglshdbjj()"><a href="#/manifest">收货单</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -113,14 +126,14 @@
                         <div class="panel-heading" role="tab" id="headingFour">
                             <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    入库
+                                    入库管理
                                 </a>
                             </h4>
                         </div>
                         <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour" aria-expanded="false" style="height: 0px;">
                             <div class="panel-body">
                                 <ul>
-                                    <li class="indexLeftBodyLi">入库清单</li>
+                                    <a href="#/inbound"><li class="indexLeftBodyLi" ng-click="rkglrkqd()">入库清单</li></a>
                                 </ul>
                             </div>
                         </div>
@@ -136,7 +149,25 @@
                         <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive" aria-expanded="false" style="height: 0px;">
                             <div class="panel-body">
                                 <ul>
-                                    <li class="indexLeftBodyLi">上架清单</li>
+                                    <li class="indexLeftBodyLi">
+                                        <a href="#/grounding" ng-click="changeHeadWordToSjqd()">上架清单</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingSeven">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                    员工管理
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven" aria-expanded="false" style="height: 0px;">
+                            <div class="panel-body">
+                                <ul>
+                                    <li class="indexLeftBodyLi"><a href="#/personnel" ng-click="ygglygzl()">员工资料</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -152,7 +183,9 @@
                         <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix" aria-expanded="false" style="height: 0px;">
                             <div class="panel-body">
                                 <ul>
-                                    <li class="indexLeftBodyLi">进入收银系统</li>
+                                    <li class="indexLeftBodyLi">
+                                        <a href="../posSystem/posIndex.html" ng-click="syxtbjj()">进入收银系统</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -166,19 +199,91 @@
         <div data-ui-view=""></div>
     </div>
     <script type="text/javascript">
-        var indexApp = angular.module('indexApp', ['ui.router','productStoreApp','globalapp']);
+        //===============xlh==========================//
+             $(".datetimeStart").datetimepicker({
+                format: 'yyyy-mm-dd',
+                minView:'month',
+                language: 'zh-CN',
+                autoclose:true,
+                startDate:new Date()
+            }).on("click",function(){
+                $(".datetimeStart").datetimepicker("setEndDate",$(".datetimeEnd").val())
+            });
+            $(".datetimeEnd").datetimepicker({
+                format: 'yyyy-mm-dd',
+                minView:'month',
+                language: 'zh-CN',
+                autoclose:true,
+                startDate:new Date()
+            }).on("click",function(){
+                $(".datetimeEnd").datetimepicker("setStartDate",$(".datetimeStart".val()))
+            });
+            //======================xlh  end==================//
 
-        indexApp.controller('indexController', ['$scope', '$http','changeHeadWord', function($scope, $http,changeHeadWord){
 
+        var indexApp = angular.module('indexApp', ['ui.router','productStoreApp','globalapp','supplier','purchase','mainApp','manifesrApp']);
+
+        indexApp.controller('indexController', ['$scope', '$http', function($scope, $http){
+            //=======baseUrl=======//
+            indexApp.value('baseUrl','http://localhost:888/');
             $scope.changeHeadWord = function(){
                 $scope.features = {
-                    totalFeatures: changeHeadWord.changeHeadWord().title1,
-                    childFeatures: changeHeadWord.changeHeadWord().title2,
+                    totalFeatures: "商品",
+                    childFeatures: "商品资料",
                 }
             }
-            $scope.account={
-                name:'bjjbjj',
-                shopName:'tan90'
+            $scope.changeHeadWordToSjqd = function(){
+                $scope.features = {
+                    totalFeatures: '上架管理',
+                    childFeatures: '上架清单',
+                }
+            }
+            $scope.cgglbjj = function(){
+                $scope.features = {
+                    totalFeatures: '采购管理',
+                    childFeatures: '采购单',
+                }
+            }
+            $scope.cgglgysbjj = function(){
+                $scope.features = {
+                    totalFeatures: '采购管理',
+                    childFeatures: '供应商',
+                }
+            }
+            $scope.shglshdbjj = function(){
+                $scope.features = {
+                    totalFeatures: '收货管理',
+                    childFeatures: '收货单',
+                }
+            }
+            $scope.rkglrkqd = function(){
+                $scope.features = {
+                    totalFeatures: '入库管理',
+                    childFeatures: '入库清单',
+                }
+            }
+            $scope.ygglygzl = function(){
+                $scope.features = {
+                    totalFeatures: '员工管理',
+                    childFeatures: '员工资料',
+                }
+            }
+            $scope.syxtbjj = function(){
+                $scope.features = {
+                    totalFeatures: '收银系统',
+                    childFeatures: '进入收银系统',
+                }
+            }
+            $scope.account = {
+                name: window.localStorage.getItem( 'user' ) || 'bjjbjj',
+                shopName: window.localStorage.getItem( 'store' ) || 'tan90'
+            }
+            $scope.indexLoginButton = function(){
+                console.log(123)
+                window.localStorage.removeItem( 'user' );
+                window.localStorage.removeItem( 'store' );
+                window.location = '/ProjectFour/ProjectFour/projectFour/src/templates/login.html';
+
             }
         }])
         indexApp.config(function($stateProvider,$urlRouterProvider){
@@ -189,8 +294,94 @@
                     templateUrl:"productStore.html",
                     controller:'productStore'
                 })
+                .state("/grounding", {
+                    url: "/grounding",
+                    templateUrl: "grounding.html",
+                    controller: 'groundController'
+                })
+
+                .state("/personnel", {
+                    url: "/personnel",
+                    templateUrl: "personnel.html",
+                    controller: 'personnelController'
+                })
+
+                .state("/supplier", {
+                    url: "/supplier",//当 url 为#/pagetab
+                    templateUrl: "supplier.html?_" + Math.random(),
+                    controller: 'supplier'
+                })
+                .state("/purchase", {
+                    url: "/purchase",
+                    templateUrl: "purchase.html?_" + Math.random(),
+                    controller: 'purchase'
+                })
+
+                .state("inbound",{
+                    url:"/inbound",
+                    templateUrl:"../controllers/Bound/inbound.html",
+                    controller:'inBound'
+                })
+                // .stage("manifest",{
+                //     url:"/manifest",
+                //     templateUrl:"manifest.html",
+                //     controller:"manifesrController"
+                // })
         });
-        indexApp.controller('productStore',['$scope','$http','openProductStore','openAddUnit','closeAddUnit','openCategory','closeCategory','addTproducts','delAddProducts','addTunit','addTcategory','addProductContentBtn','addTsupplier','addUnitBtn','saveCategory','lookForMsg',function(bjscope,bjhttp,openProductStore,openAddUnit,closeAddUnit,openCategory,closeCategory,addTproducts,delAddProducts,addTunit,addTcategory,addProductContentBtn,addTsupplier,addUnitBtn,saveCategory,lookForMsg){
+        //==================xlh=====================//
+
+        
+        indexApp.controller('manifesrController', ['$scope', '$http', function($scope, $http){
+            
+            
+        }])
+        //==================xlh end================//
+        //=============xrt=========================//
+        indexApp.controller('groundController', ['$scope','$http','baseUrl',function($scope,$http,baseUrl){
+                $scope.msg = {
+                    isGround:'已上架',
+                }
+
+                $scope.checkBtn = function(){ 
+                    $http({
+                        methods:'get',
+                        url: baseUrl + 'getsupplier',
+                    }).then(function(res){
+                        console.log('res->',res)
+                    }); 
+                }
+
+        }]);
+
+        indexApp.controller('personnelController', ['$scope','$http','baseUrl',function($scope,$http,baseUrl){
+                $scope.used = {
+                    isStart:'启用',
+                }
+          
+                $scope.checkBtn = function(){ 
+                    $http({
+                        methods:'get',
+                        params:{},
+                        url: baseUrl + 'getsupplier',
+                    }).then(function(res){
+                        $scope.dataOrign = res;
+                        console.log('res->',res,'dataOrign->',$scope.dataOrign.data[0]);
+
+                    }); 
+                }
+
+        }]);
+
+
+
+
+        //===================xrt end==================//
+
+        
+
+
+
+        indexApp.controller('productStore',['$scope','$http','openProductStoreBjj','openAddUnit','closeAddUnit','openCategory','closeCategory','addTproducts','delAddProducts','addTunit','addTcategory','addProductContentBtn','addTsupplier','addUnitBtn','saveCategory','lookForMsg',function(bjscope,bjhttp,openProductStoreBjj,openAddUnit,closeAddUnit,openCategory,closeCategory,addTproducts,delAddProducts,addTunit,addTcategory,addProductContentBtn,addTsupplier,addUnitBtn,saveCategory,lookForMsg){
             //点击添加商品
             bjscope.addProductContentBtn = function(){
                 addProductContentBtn.addProductContentBtn(bjscope,bjhttp,function(data){
@@ -218,14 +409,22 @@
             lookForMsg
             bjscope.lookForMsg = function(){
                 lookForMsg.lookForMsg(bjscope,bjhttp,function(data){
-                    console.log(data)
+                    // console.log(data)
+                    var _data = data;
+                    addTproducts.addTproducts(bjhttp,function(data){
+                        bjscope.tprodata = _data
+                    });
+                    // bjscope.tprodata = data
+
                 })
                 
             }
             //打开增加商品栏
+            
             bjscope.openAddProduct = function(){
                 bjscope.right = $('.addProductStore').css("right")
-                bjscope.result = openProductStore.openAddProduct(bjscope.right);
+                // console.log(133)
+                bjscope.result = openProductStoreBjj.openAddProduct(bjscope.right);
                 $('.addProductStore').css("right",bjscope.result)
             }
             //打开增加单位栏

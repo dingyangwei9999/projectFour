@@ -1,0 +1,93 @@
+.personnel {
+  padding-left: 15px;
+  padding-right: 180px;
+  width: 100%;
+  height: 100%;
+}
+
+.personnel .btn-group {
+  float: left;
+  padding-left: 32px;
+  margin-bottom: 5px;
+}
+
+.personnel .btn-group .dropdown-toggle {
+  background-color: #f5f5f5;
+  border-color: #ddd;
+  margin-top: 5px;
+}
+
+.personnel .btn-group input {
+  margin: 5px 10px;
+  height: 31px;
+  padding-left: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.personnel .btn-group .submit {
+  padding: 5px 12px;
+  color: #fff;
+  background-color: #fa0;
+}
+
+.personnel .btn-group .addBtn {
+  float: right;
+  margin-top: 5px;
+  color: #666;
+}
+
+.personnel .btn-group .addBtn:hover {
+  background-color: #49afcd;
+  color: #fff;
+}
+
+.personnel .startBtn {
+  padding-left: 0px;
+}
+
+.personnel .bs-docs-example thead > tr:first-child {
+  background-color: #d5e9ed;
+  border-bottom: 0;
+  color: #09c;
+}
+
+.personnel .bs-docs-example .table-striped .btn {
+  padding: 3px 12px;
+  font-size: 10px;
+  background-color: #49afcd;
+}
+
+.personnel .bs-docs-example .table-striped .dropdown-menu {
+  left: auto;
+  right: 0;
+  width: 50px;
+}
+
+.personnel .bs-docs-example .table-striped .dropdown-menu a {
+  float: left;
+  width: 100px;
+}
+
+.personnel .bs-docs-example .table-striped .dropdown-menu .saveBtn, .personnel .bs-docs-example .table-striped .dropdown-menu .cancelBtn {
+  margin: 5px 0 5px 20px;
+  width: 52px;
+  text-align: center;
+  color: #fff;
+}
+
+.personnel .bs-docs-example .table-striped .dropdown-menu .cancelBtn {
+  float: right;
+  margin-left: 0;
+  margin-right: 20px;
+}
+
+.personnel .bs-docs-example .table-striped .dropdown-menu .iconfont {
+  float: right;
+  padding: 3px 20px;
+  color: #aaa;
+}
+
+.personnel .bs-docs-example .table-striped .dropdown-menu .iconfont:hover {
+  background-color: #eee;
+}

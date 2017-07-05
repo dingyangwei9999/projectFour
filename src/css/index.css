@@ -1,13 +1,13 @@
 @import url(common.css);
 @import url(global.css);
+@import url(grounding.css);
+@import url(personnel.css);
 .index-header {
   display: block;
   height: 42px;
-  position: fixed;
-  top: 0;
-  left: 180px;
+  margin-left: 180px;
   background-color: #0099CC;
-  width: 85.9%;
+  width: auto;
   padding-left: 15px;
   color: #fff;
   position: relative;
@@ -49,7 +49,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  right: 13px;
+  right: 15px;
   display: inline-block;
   height: 42px;
   width: 200px;
@@ -84,8 +84,12 @@
 .index-header .index-login-box .indexLoginButton {
   display: inline-block;
   height: 28px;
-  line-height: 28px;
+  line-height: 15px;
   width: 100%;
+}
+
+.index-header .index-login-box .indexLoginButton:hover {
+  background-color: #49afcd;
 }
 
 .index-body-left {

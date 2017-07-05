@@ -1,0 +1,147 @@
+<div class="purchasellw11">
+	<div class="purchase_container" ng-controller="purchase">
+		<div class="purchase_top">
+			<div class="purchase_top_btnadd" ng-click="show()">添加采购单</div>
+			<div class="purchase_topcheck">
+				<p class="purchase_text">历史采购单查询：<input type="text" class="purchase_txt " placeholder="请输入关键词" ng-model="sval"></p>
+			</div>
+		</div>
+		<div class="purchasellw">
+			<div class="purchase_table">
+				<table class="table table-hover">
+					<thead class="purchase_Theader">
+						<tr>
+							<th>Operate</th>
+							<th  ng-repeat="(key,value) in dataset[0]">{{key}}</th>
+							<!-- <th>订单编号</th>
+							<th>条形码</th>
+							<th>商品名称</th>
+							<th>商品种类</th>
+							<th>单价</th>
+							<th>数量</th>
+							<th>总价</th>
+							<th>供应商</th>
+							<th>订单时间</th> -->
+						</tr>
+					</thead>
+					<tbody class="purchase_Tbody">
+						<tr ng-repeat="obj in dataset | filter:sval:false" >
+							<td><span class="purchase_edit btn-primary" ng-click="edit($index)">编辑</span>
+							<span class="purchase_del btn-danger" ng-click="del($index)">删除</span></td>
+							<td>{{obj.indexid}}</td>
+							<td>{{obj.ID}}</td>
+							<td>{{obj.qrCode}}</td>
+							<td>{{obj.productName}}</td>
+							<td>{{obj.category}}</td>
+							<td>{{obj.price}}</td>
+							<td>{{obj.qty}}</td>
+							<td>{{obj.totalPrice}}</td>
+							<td>{{obj.supplierName}}</td>
+							<td>{{obj.times}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="purchase_add" ng-show="Financial_show">
+					<form class="form-inline">
+						<div class="input-group">
+						<div class="input-group-addon">订单编号</div>
+						<input type="text" class="form-control input_3" id="exampleInputAmount" placeholder="" ng-model="bianhao">
+						<button class="btn btn-success btnsuiji" ng-click="suiji()">随机生成</button>
+						</div>
+					<div class="form-group">
+						<div class="input-group">
+						<div class="input-group-addon">商品条码</div>
+						<input type="text" class="form-control input_1" id="exampleInputAmount" placeholder=""  ng-model="tiaoma">
+						</div>
+					</div>
+					<div class="input-group input-group1">
+						<div class="input-group-addon">商品名称</div>
+						<input type="text" class="form-control input_1" id="exampleInputAmount" placeholder=""  ng-model="mingcheng">
+					</div>
+					<div class="input-group input-group1">
+						<div class="input-group-addon">商品种类</div>
+						<select name="" id="" class="form-control" ng-model="zhonglei">
+							<option ng-repeat="obj in category">{{obj.category}}</option>
+						<!-- 	<option value="广州市*****">日用品</option> -->
+						</select>
+					</div>
+					<div class="input-group input-group1">
+						<div class="input-group-addon">商品单价</div>
+						<input type="text" class="form-control input_1" id="exampleInputAmount" placeholder=""  ng-model="danjia">
+					</div>
+					<div class="input-group input-group1">
+						<div class="input-group-addon">商品数量</div>
+						<input type="text" class="form-control input_1" id="exampleInputAmount" placeholder=""  ng-model="shuliang">
+					</div>
+				<!-- 	  <div class="input-group input-group1">
+						<div class="input-group-addon">商品总价</div>
+						<input type="text" class="form-control input_1" id="exampleInputAmount" placeholder=""  ng-model="zongjia">
+					</div> -->
+					<div class="input-group input-group1">
+						<div class="input-group-addon">供应商名</div>
+						<select name="" id="" class="form-control" ng-model="gongming">
+							<option ng-repeat="obj in supplier">{{obj.supplierName}}</option>
+						</select>
+					</div>
+						<button class="btnbc btn btn1  btn-info"  ng-click="keep()">保存</button>
+						<button class="btnqx btn btn1 btn-danger" ng-click="show()">取消</button>
+					</form>
+				</div>
+				<div class="purchase_edit1" ng-show="edit_show">
+					<form class="form-inline">
+						<div class="input-group">
+						<div class="input-group-addon">订单编号</div>
+						<input type="text" class="form-control input_3" id="exampleInputAmount" placeholder="" ng-model="bianhao1">
+						<button class="btn btn-success btnsuiji" ng-click="suiji()">随机生成</button>
+						</div>
+					<div class="form-group">
+						<div class="input-group">
+						<div class="input-group-addon">商品条码</div>
+						<input type="text" class="form-control input_1" id="exampleInputAmount" placeholder=""  ng-model="tiaoma1">
+						</div>
+					</div>
+					<div class="input-group input-group1">
+						<div class="input-group-addon">商品名称</div>
+						<input type="text" class="form-control input_1" id="exampleInputAmount" placeholder=""  ng-model="mingcheng1">
+					</div>
+					<div class="input-group input-group1">
+						<div class="input-group-addon">商品种类</div>
+						<select name="" id="" class="form-control"  ng-init="zhonglei1='饮料'" ng-model="zhonglei1">
+							<option ng-repeat="obj in category">{{obj.category}}</option>
+						<!-- 	<option value="广州市*****">日用品</option> -->
+						</select>
+					</div>
+					<div class="input-group input-group1">
+						<div class="input-group-addon">商品单价</div>
+						<input type="text" class="form-control input_1" id="exampleInputAmount" placeholder=""  ng-model="danjia1">
+					</div>
+					<div class="input-group input-group1">
+						<div class="input-group-addon">商品数量</div>
+						<input type="text" class="form-control input_1" id="exampleInputAmount" placeholder=""  ng-model="shuliang1">
+					</div>
+					<!-- <div class="input-group input-group1">
+						<div class="input-group-addon">商品总价</div>
+						<input type="text" class="form-control input_1" id="exampleInputAmount" placeholder=""  ng-model="zongjia1">
+					</div> -->
+					<div class="input-group input-group1">
+						<div class="input-group-addon">供应商名</div>
+						<select name="" id="" class="form-control" ng-init="gongming1='达利园'" ng-model="gongming1">
+							<option ng-repeat="obj in supplier">{{obj.supplierName}}</option>
+						</select>
+					</div>
+						<button class="btnbc btn btn1  btn-info"  ng-click="keepedit()">保存</button>
+						<button class="btnqx btn btn1 btn-danger" ng-click="quxiao()">取消</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<div class="alertTips" ng-show="closeTips">
+			<div class="closeTip">
+				<div class="closeTips" ng-click="closeTip()">x</div>
+			</div>
+			<div class="alertTxt">{{message}}</div>
+		</div>
+	</div>
+</div>
+

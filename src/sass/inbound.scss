@@ -1,0 +1,83 @@
+@import 'common.css';
+@import 'global.css';
+.inbound-main{
+    width: 100%;
+    position: relative;
+}
+
+.myChange{
+    width: 500px;
+    position: fixed;
+    margin-left: -16%;
+    margin-top: -270px;
+    z-index: 2000;
+    left: 50%;
+    top: 50%;
+    overflow: hidden;
+}
+.close{
+    color: #FFF !important;
+    opacity:1 !important;
+    z-index: 2000;
+    font-style: normal;
+}
+.tb2{
+    width: 120px;
+    display: block;
+    height: 50px;
+}
+.tb1{
+    background: #17B6EE;
+    color: #FFF;
+}
+tr:hover{
+    background: #ccc;
+}
+.bd-content{
+    padding: 10px 10px 10px 30px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 400px;
+}
+.lab-left{
+  padding-left: 17px !important;
+}
+.bb-main{
+    width: 1096px;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+.bb-from{
+    overflow: hidden;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+.bon-right{
+    margin-left: 700px;
+}
+.bo-right{
+    margin-left: 43px;
+}
+.bn-left{
+    width: 150px;
+    margin-right: 50px;
+    margin-left: 50px !important;
+    color:#5bc0de;
+}
+.bn-right{
+    width: 150px;
+}
+.bdn-top{
+    padding-top: 20px;
+}
+.bd-left{
+    margin-left: 42px;
+}
+.dr-ul{
+    margin-left: 55px !important;
+}
+.se-left{
+    margin-left: 58px;
+    height: 34px;
+    border: 1px solid #CCC;
+}

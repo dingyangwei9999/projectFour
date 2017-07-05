@@ -1,0 +1,67 @@
+
+<div class="personnel" ng-controller="personnelController">
+	<div class="startBtn btn-group col-sm-12">
+	  	<select class="btn dropdown-toggle" data-toggle="dropdown" ng-model="used.isStart">
+	    	<option value="启用">启用</option>
+           	<option value="禁用">禁用</option>
+	  	</select>
+
+	  	<fieldset>
+			<input type="text" placeholder="工号/姓名/电话">
+	  		<button type="submit" class="btn submit" ng-click="checkBtn()">查询</button>
+        <button type="botton" class="btn addBtn">添加员工<i class="iconfont icon-jia"></i></button>
+	  	</fieldset>
+
+
+	</div>
+	<legend></legend>
+
+	<div class="bs-docs-example">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>所属门店</th>
+              <th>编号</th>
+              <th>姓名</th>
+              <th>角色</th>
+              <th>密码</th>
+              <th>电话</th>
+              <th>邮箱</th>
+              <th>状态</th>
+              <th style="width: 132px;text-align: center;">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="obj in dataset">
+              <td>{{$index + 1}}</td>
+              <td>{{obj.usersStore}}</td>
+              <td>{{obj.usersId}}</td>
+              <td>{{obj.usersName}}</td>
+              <td>{{obj.usersRole}}</td>
+              <td>{{obj.usersPassword}}</td>
+              <td>{{obj.usersPhone}}</td>
+              <td>{{obj.usersEmail}}</td>
+           	  <td>{{obj.usersStatus}}</td>
+              <td style="padding:4px 12px;">
+              	<div class="btn-group">
+                	<button class="btn btn-info dropdown-toggle" data-toggle="dropdown">编辑<span class="caret"></span></button>
+	                <ul class="dropdown-menu">
+	                  <li><a href="#">启用</a><i class="iconfont icon-jia"></i></li>
+	                  <li><a href="#">禁用</a><i class="iconfont icon-jian"></i></li>
+	                  <!-- <li class="divider"></li> -->
+	                  <li><a href="#" class="saveBtn btn">保存</a><span class="cancelBtn btn" href="#">取消</span></li>
+	                </ul>
+              	</div>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+      	
+      </div>
+
+</div>

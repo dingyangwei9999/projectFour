@@ -1,0 +1,68 @@
+<div class="supplier_container" ng-controller="supplier">
+	<div class="supplier_top">
+		<div class="supplier_top_btnadd" ng-click="show()">添加供应商</div>
+		<div class="supplier_topcheck">
+			<p class="supplier_text">供应商查询：<input type="text" class="supplier_txt " placeholder="请输入关键词" ng-model="sval"></p>
+		</div>
+	</div>
+	<div class="supplier_table">
+		<table class="table table-hover">
+			<thead class="Theader">
+				<tr>
+					<th>Operate</th>
+					<th  ng-repeat="(key,value) in dataset[0]">{{key}}</th>
+					<!-- <th>编号</th>
+					<th>名称</th> -->
+				</tr>
+			</thead>
+			<tbody class="Tbody">
+				<tr ng-repeat="obj in dataset | filter:sval:false" >
+					<td><span class="supplier_edit btn-primary" ng-click="edit($index,$event)">编辑</span>
+					<span class="supplier_del btn-danger" ng-click="del($index)">删除</span></td>
+					<td>{{obj.indexid}}</td>
+					<td>{{obj.ID}}</td>
+					<td>{{obj.supplierName}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="supplier_add" ng-show="Financial_show">
+			<form class="form-inline">
+			  <div class="form-group">
+			    <div class="input-group">
+			      <div class="input-group-addon">供应商编号</div>
+			      <input type="text" class="form-control input_1" id="exampleInputAmount" placeholder="" ng-model="val">
+			      <button class="btn btn-success btnsuiji" ng-click="suiji()">随机生成</button>
+			    </div>
+			  </div>
+			 	<div class="input-group input-group1">
+			      <div class="input-group-addon">供应商名称</div>
+			      <input type="text" class="form-control input_2" id="exampleInputAmount" placeholder="" ng-model="nameval">
+			    </div>
+			    <button class="btnbc btn btn1  btn-info"  ng-click="keep()">保存</button>
+			    <button class="btnqx btn btn1 btn-danger" ng-click="show()">取消</button>
+			</form>
+		</div>
+		<div class="supplier_edit1" ng-show="edit_show">
+			<form class="form-inline">
+			  <div class="form-group">
+			    <div class="input-group">
+			      <div class="input-group-addon">供应商编号</div>
+			      <input type="text" class="form-control input_1" id="exampleInputAmount" placeholder="" ng-model="numval" >
+			    </div>
+			  </div>
+			 	<div class="input-group input-group1">
+			      <div class="input-group-addon">供应商名称</div>
+			      <input type="text" class="form-control input_2" id="exampleInputAmount" placeholder="" ng-model="nameval1">
+			    </div>
+			    <button class="btnbc btn btn1  btn-info"  ng-click="keepedit()">保存</button>
+			    <button class="btnqx btn btn1 btn-danger" ng-click="quxiao()">取消</button>
+			</form>
+		</div>
+	</div>
+	<div class="alertTips" ng-show="closeTips">
+		<div class="closeTip">
+			<div class="closeTips" ng-click="closeTip()">x</div>
+		</div>
+		<div class="alertTxt">{{message}}</div>
+	</div>
+</div>

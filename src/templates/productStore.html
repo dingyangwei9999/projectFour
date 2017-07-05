@@ -9,7 +9,7 @@
             <div class="productStoreTopRightBox1">
                 <select class="form-control">
                     <option>无</option>
-                    <option ng-repeat="obj in tsupplier" ng-bind="obj.suppliername"></option>
+                    <option ng-repeat="obj in tsupplier" ng-bind="obj.supplierName"></option>
                 </select>
             </div>
             <div class="productStoreTopRightBox2">
@@ -91,7 +91,7 @@
                 <div class="addProductStoreLevel">
                     <span class="addProductStoreLevelSpan">供货商</span>
                     <select class="form-control" name="addProNameSupplier">
-                        <option ng-repeat="obj in tsupplier" value="{{obj.indexid}}">{{obj.suppliername}}</option>
+                        <option ng-repeat="obj in tsupplier" value="{{obj.indexid}}">{{obj.supplierName}}</option>
                     </select>
                 </div>
                 <div class="addProductStoreLevel">

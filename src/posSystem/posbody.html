@@ -1,0 +1,143 @@
+<div class="pos_container">
+	<header>
+		<div class="pos_title">
+			<img src="../images/pos.jpg">tan90收银台
+		</div>
+	</header>
+	<main>
+		<div class="main_top clear">
+			<div class="main_top_barcode">
+				<h4>商品条形码:</h4>
+				<input type="text" ng-model="barCode" ng-blur="barCodeChange($event)">
+				<i>√</i>
+			</div>
+			<div class="main_top_reciptNum">
+				<span>小票流水号: </span>
+				<h4 ng-bind="serailNum"></h4>
+			</div>
+		</div>
+		<div class="main_detail">
+			<table border="1" rules="all">
+				<thead>
+					<tr style="background-color:#E3EFFF;">
+						<th></th>
+						<th>条形码</th>
+						<th>商品名称</th>
+						<th>规格</th>
+						<th>货号</th>
+						<th>单位</th>
+						<th>单价</th>
+						<th>折扣率%</th>
+						<th>折扣价</th>
+						<th>数量</th>
+						<th>金额</th>
+						<th>生产日期</th>
+						<th>保质期</th>
+						<th>到期日期</th>
+						<th>生产批号</th>
+						<th>供应商</th>
+						<th>备注</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr style="background-color:#8080FF;color:white;" ng-repeat="obj in goodslist">
+						<td>{{$index + 1}}</td>
+						<td>{{obj.qrCode}}</td>
+						<td>{{obj.productName}}</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>￥{{obj.salePrice}}</td>
+						<td>{{discountRate}}</td>
+						<td>￥{{(obj.salePrice * discountRate/100).toFixed(2)}}</td>
+						<td>{{obj.qty}}</td>
+						<td>￥{{(obj.totalPrice * discountRate/100).toFixed(2)}}</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="main_footer clear">
+			<div class="main_price">
+				<h1>共: <span>￥{{settlePrice}}</span></h1>
+				<h3>商品数量 : <span>{{qty}}</span></h3>
+				<h5>折扣: ￥<strong ng-bind="reci"></strong></h5>
+			</div>
+			<div class="main_price_detail">
+				<div>应收:&nbsp;<input type="text" ng-value="settlePrice" style="background-color:#f5f5f5;border:1px solid #888;" readonly/></div>
+				<div>收款:&nbsp;<input type="text" ng-model="receipt"/><button class="discount" ng-click="priceOnSale()">打折(/)</button></div>
+				<div>找零:&nbsp;<input type="text" ng-value="(receipt - settlePrice).toFixed(2)" style="background-color:#f5f5f5;border:1px solid #888;" readonly/></div>
+				<div>
+					<button ng-click="clearing()">结算打印(F4)</button>
+					<button ng-click="salesReturn">退货(R)</button>
+				</div>
+			</div>
+		</div>
+		<div class="footer_vipmsg clear">
+			<div class="vipmsg">
+				<div>
+					<div class="vip_manage">姓名:&nbsp;<span class="vip_name">暂无</span>会员卡(Z):&nbsp;<div><input type="text"><span class="btn_sure">√</span><span class="btn_add" ng-click="addMember()">+</span></div></div>
+					<div class="integral">本次积分:&nbsp;<input type="text"><span class="integral_total">总积分:&nbsp;<strong>暂无</strong></span></div>
+
+				</div>
+				<div class="repertory">当前库存:<strong>0</strong></div>
+			</div>
+			<div class="vip_handle">
+				<button>挂单(ctrl+1)</button>
+				<button>取单(ctrl+2)</button>
+				<button>删单(ctrl+3)</button>
+			</div>
+		</div>
+	</main>
+	<div class="btn_discount" ng-show="disco" ng-cloak>
+		<p class="discount_title">整单折扣<span style="cursor:pointer;" ng-click="close_disco()">×</span></p>
+		<div class="discount_middle">
+			<div class="discount_in">
+				<h3>折扣</h3>
+				<div>
+					<p>折&nbsp;&nbsp;扣&nbsp;率&nbsp;:&nbsp;<input type="text" maxlength="4" ng-model="rate" ng-change = "disChange()"> %</p>
+					<p>折扣金额&nbsp;:&nbsp;<input type="text" ng-model="zhe" ng-readonly="true"></p>
+					<p>实收金额&nbsp;:&nbsp;<input type="text" ng-model="shi" ng-readonly="true"></p>
+				</div>
+			</div>
+			<div class="btn_back" style="text-align:center;">
+				<button style="margin-right:20px;" ng-click="surePrice()">确认</button>
+				<button ng-click="close_disco()">取消</button>
+			</div>
+		</div>
+	</div>
+	<div class="shade" style="position:fixed;left:0;top:0;width:inherit;height:inherit;background-color:black;opacity:.4;z-index:50;" ng-show="shade" ng-cloak>
+		
+	</div>
+	<div id="order" style="position:fixed;width:300px;left:50%;top:50%;margin-left:-150px;margin-top:-200px;z-index:200;background-color:#E3EFFF;border:1px solid #8080FF;padding-left:30px;box-sizing:border-box;" ng-show="printMenu" ng-cloak>
+		<div class="order_title" style="text-align: center;">
+			<h5>欢迎观临tan90度超市</h5>
+			<h5>购物小票为唯一退货凭证</h5>
+			<h5 style="margin-bottom:10px;">客服电话:030-23232323</h5>
+			日期:<span>{{ymd}}</span>&nbsp;&nbsp;<span>{{hms}}</span>&nbsp;&nbsp;机号:001<br/>
+			收银员:0001<br/>单号:<span>{{odd}}</span><br/>
+			货号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数量*单价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金额
+		</div>
+		<div class="order_body" style="border-top:1px dashed #8080FF;height:170px;margin-bottom:10px;border-bottom:1px dashed #8080FF;overflow:hidden;">
+			<ul>
+				<li ng-repeat="obj in goods">
+					<p style="white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{obj.productName}}</p>
+					<p><span>889898</span> <span style="margin-left:34px;">{{obj.qty}}</span>*<span>{{obj.salePrice}}</span> <span style="float:right;margin-right:10px;">{{obj.totalPrice}}</span></p>
+				</li>
+			</ul>
+		</div>
+		<div class="order_footer">
+			<p>总价   <span style="float:right;margin-right:10px;">{{printPrice}}</span></p>
+			<p>折扣率   <span style="float:right;margin-right:10px;color:red;">{{printDis}}%</span></p>
+			<p>优惠   <span style="float:right;margin-right:10px;color:red;">{{(printPrice - (printPrice*printDis/100).toFixed(2)).toFixed(2)}}</span></p>
+			<p>实收金额   <span style="float:right;margin-right:10px;">{{(printPrice*printDis/100).toFixed(2)}}</span></p>
+			<p style="margin:5px 0;text-align:center;"><button style="margin-right:20px;" ng-click="print()">打印凭条</button><button ng-click="cancel()">取消</button></p>
+			
+		</div>
+	</div>	
+</div>

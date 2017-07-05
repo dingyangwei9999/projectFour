@@ -1,0 +1,184 @@
+<link rel="" type="" href="">
+<div  ng-controller="inBound" class="inbound-main">
+    
+<div>
+    <!--搜索操作-->
+    <div class="bb-from">
+    <div class="form-group">
+        <div class="col-sm-3"><label>productID：<input type="text" ng-model="productID1"></label></div>
+        <div class="col-sm-3"><label>inboundID：<input type="text" ng-model="inboundID"></label></div>
+       <div class="col-sm-3"><label>produName：<input type="text" ng-model="productName"></label></div>
+       <div class="col-sm-3"><input type="button" class="btn btn-info bon" value="搜索" ng-click="search()"></div>
+      <div class="col-sm-3"><label class="lab-left">qrCode：<input type="text" ng-model="qrCode"></label></div>
+       <div class="col-sm-7"><label>otboundID：<input type="text" ng-model="otboundID"></label></div>
+        <div class="col-sm-3"><input type="button" class="btn btn-info" value="添加库存" ng-click="add()"></div>
+    </div>  
+    </div>
+
+<!--显示数据-->
+    <div class="bs-example bb-main" data-example-id="simple-table">
+        <table class="table table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <th ng-repeat="(key, value) in dataset[0]" ng-bind="key" class="tb1"></th>
+                    <th class="tb1">是否入库</th>
+                    <th class="tb1">编辑 | 删除</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="obj in dataset">
+                    <td ng-repeat="(key, value) in obj" ng-bind="value"></td>
+                    <td><span class="tb1">
+                       <input type="button" class="btn btn-success" value="在库存" ng-click="inbound()" ng-show="outbound">
+                       <input type="button" class="btn btn-warning" value="已上架" ng-click="oubound()" ng-show="!outbound">
+                    </span></td>
+                   <td><span class="tb2">
+                       <input type="button" class="btn btn-info" value="编辑" ng-click="change($index)">
+                       <input type="button" class="btn btn-info btn-danger" value="删除" ng-click="delete($index)">
+                    </span></td> 
+                </tr>
+            </tbody>
+        </table>             
+    </div>
+</div>
+
+<div class="myChange" ng-show="myChange">
+<div class="panel panel-primary">
+    <!--顶部-->
+  <div class="panel-heading">Change <i class="close" ng-click="hideing()">X</i></div>
+    <!--内容-->
+  <div class="bd-content">
+    
+<form class="form-horizontal" role="form">
+
+    <!--入库ID-->
+  <div class="form-group">
+    <label for="firstname" class="col-sm-2 control-label">inboundID：</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control bo-right" id="firstname" placeholder="入库单号" ng-model="inboundIDs">
+    </div>
+  </div>
+
+    <!--实际到货的数量-->
+  <div class="form-group">
+    <label for="firstname" class="col-sm-2 control-label">reserveNum：</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control bo-right" id="firstname" placeholder="实际到货的数量" ng-model="reserveNum">
+    </div>
+  </div>
+
+  <!--入库数量-->
+  <div class="form-group">
+    <label for="lastname" class="col-sm-2 control-label">inbound：</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control bo-right" id="lastname" placeholder="入库数量" ng-model="inbounds">
+    </div>
+  </div>
+
+  <!--类型-->
+  <div class="form-group">
+    <label for="lastname" class="col-sm-2 control-label">type：</label>
+    <select class="se-left">
+        <option value="sunfuck">日用品</option>
+        <option value="bilibli">电器</option>
+    </select>
+  </div>
+
+ <!--入库时间-->
+  <div class="form-group">
+    <label for="lastname" class="col-sm-2 control-label">inboundTime：</label>
+    <div class="col-sm-7">
+      <input type="datetime-local" class="form-control bo-right" id="lastname" placeholder="入库时间" ng-model="inboundTime">
+    </div>
+  </div>
+
+<!--出库数量-->
+  <div class="form-group">
+    <label for="lastname" class="col-sm-2 control-label">outbound：</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control bo-right" id="lastname" placeholder="出库数量" ng-model="outbounds">
+    </div>
+  </div>
+
+  <!--种类-->
+  <div class="form-group">
+    <label for="lastname" class="col-sm-2 control-label">Unit：</label>
+    <select class="se-left">
+        <option value="xl">瓶</option>
+        <option value="xiang">箱</option>
+    </select>
+  </div>
+
+  <!--出库时间-->
+  <div class="form-group">
+    <label for="lastname" class="col-sm-2 control-label">outboundTime：</label>
+    <div class="col-sm-7">
+      <input type="datetime-local" class="form-control bo-right" id="lastname" placeholder="出库时间" ng-model="outboundTime">
+    </div>
+  </div>
+
+  <!--种类-->
+  <div class="form-group">
+    <label for="lastname" class="col-sm-2 control-label">Unit：</label>
+    <select class="se-left">
+        <option value="xl">瓶</option>
+        <option value="xiang">箱</option>
+    </select>
+  </div>
+
+  <!--备注-->
+  <div class="form-group">
+    <label for="lastname" class="col-sm-2 control-label">writedown：</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control bo-right" id="lastname" placeholder="备注" ng-model="writedown">
+    </div>
+  </div>
+
+  
+
+
+  <!--确认和取消-->
+  <div class="form-group">
+    <div class="btn-group bdn-top" role="group">
+        <button type="button" class="btn btn-primary bn-left" ng-click="oright()">确认</button>
+        <button type="button" class="btn btn-danger bn-right" ng-click="hideing()">取消</button>
+      </div>
+  </div>
+</form>
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+</div>
+
+<div>
+    <!--分页-->
+<div class="bon-right" data-example-id="pagination-sizing">
+    <nav aria-label="...">
+      <ul class="pagination pagination-lg">
+        <li><a aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+        <li><a>1</a></li>
+        <li><a>2</a></li>
+        <li><a>3</a></li>
+        <li><a>4</a></li>
+        <li><a>...</a></li>
+        <li><a aria-label="Next"><span aria-hidden="true">下一页</span></a></li>
+      </ul>
+    </nav>
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+

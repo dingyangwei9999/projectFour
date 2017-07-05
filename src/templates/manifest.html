@@ -1,0 +1,86 @@
+<div class="manifest" ng-controller="manifesrController">
+        <div>
+            <div><button type="button" class="btn btn-success" ng-click="toggle()">添加货单</button></div>
+            <span>商品名称: <input type="text" ng-model="name"></span>
+        </div>
+        <div class="query">
+            
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                选择进货商
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="#">淘宝</a></li>
+                <li><a href="#">京东</a></li>
+                <li><a href="#">老王</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">张三</a></li>
+              </ul>
+            </div>
+            
+            <div class="timer">
+                <input size="16" type="text" class="datetimeStart" readonly class="form_datetime">
+                --
+                <input size="16" type="text" class="datetimeEnd" readonly class="form_datetime">
+            </div>
+            <div class="searchbtn">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Search for...">
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-warning">查询</button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div ng-show="visible" >
+            <table class="table table-condensed" >
+                <tr>
+                    <input type="text" ng-model="account._id" placeholder="序号">
+                    <input type="text" ng-model="account.name" placeholder="商品名称">
+                    <input type="text" ng-model="account.code" placeholder="条码">
+                    <input type="text" ng-model="account.classify" placeholder="商品分类">
+                    <select ng-model="account.classify">
+                        <option value="商品分类">商品分类</option>
+                        <option value ="饮料">饮料</option>
+                        <option value ="食品">食品</option>
+                        <option value="日常用品">日常用品</option>
+                    </select>
+                    <input type="text" ng-model="account.supplier" placeholder="供货商">
+                    <select ng-model="account.supplier">
+                        <option value="供货商">供货商</option>
+                        <option value="老王">老王</option>
+                        <option value ="老谢">老谢</option>
+                        <option value ="老蓝">老蓝</option>
+                        <option value="lemon">lemon</option>
+                    </select>
+                </tr>
+                <tr>
+                    <input type="text" ng-model="account.unit" placeholder="单位">
+                    <select ng-model="account.unit">
+                        <option value="单位">单位</option>
+                        <option value="瓶">瓶</option>
+                        <option value ="箱">箱</option>
+                        <option value ="罐">罐</option>
+                        <option value="件">件</option>
+                        <option value="支">支</option>
+                        <option value="袋">袋</option>
+                        <option value="斤">斤</option>
+                    </select>
+                    <input type="text" ng-model="account.upper" placeholder="库存上限">
+                    <input type="text" ng-model="account.floor" placeholder="库存下限">
+                    <input type="text" ng-model="account.data" placeholder="到期日期">
+                    <input size="16" type="text" class="datetimeStart" readonly class="form_datetime">
+                    
+                    <input type="text" ng-model="account.guarantee" placeholder="保质情况">
+                    <input size="16" type="text" class="datetimeEnd" readonly class="form_datetime">
+                    <button type="button" class="btn btn-success" ng-click="submit()">保存货单</button>
+                </tr>
+            </table>
+        </div>
+</div>
+        

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
+    <link rel="stylesheet" type="text/css" href="../libs/animate/animate.css">
+
+    <script src="../libs/jquery/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../libs/jquery/jquery.form.js"></script>
+    <script src="../libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../libs/angular/angular.min.js"></script>
+    <script src="../libs/angular-ui/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="../libs/angular/angular.global.js"></script>
+</head>
+<body  ng-app = "logApp" ng-controller="logController" id="bodyImg">
+	<div class="login-box">
+        <div class="col-sm-12 b-r">
+            <h4 class="m-t-none m-b">欢迎登录！</h4>
+            <form role="form" name="myForm">
+                <div class="form-group text-left">
+                    <label>用户名：</label>
+                    <input type="text" v-model="username" name="username" placeholder="请输入用户名(3~18个字符)" class="form-control required" ng-model="loginData.username" pattern="^\w{3,18}$">
+                    <div class="alert alert-danger" ng-show="myForm.username.$error.pattern">
+                        用户名必须为6-20个字母、数字或下划线
+                    </div>
+                </div>
+
+                <div class="form-group  text-left">
+                    <label>密码：</label>
+                    <input type="password" v-model="pwd" name="password" placeholder="请输入密码(6~20个字符)" class="form-control required" ng-model="loginData.password" pattern="^\w{6,20}$">
+                    <div class="alert alert-danger" ng-show="myForm.password.$error.pattern">
+                        用户名必须为6-20个字母、数字或下划线
+                    </div>
+                </div>
+                <div class="divBtn col-sm-12">
+                    <input type="button" class="btn btn-primary m-t-n-xs" value="超级管理员" ng-click="superLogin()">
+                    <input type="submit" class="btn btn-primary m-t-n-xs" value="登录" ng-click="loginBtn()">
+                </div>
+            </form>
+        </div>
+        <div class="copyright">2017 © tan90</div>
+    </div>
+
+    <div class="well shake animated" ng-show="loginData.isValid">
+        <a href="#" id="example" class="btn btn-success" rel="popover" data-content="" data-original-title="Bootstrap弹出框">温馨提示：</a>
+        <p>{{loginData.content}}</p>
+    </div>
+4
+    <script type="text/javascript">
+        var logApp = angular.module('logApp',['ui.router','globalapp']);
+        logApp.value('baseUrl','http://localhost:888/');
+
+        logApp.controller('logController',['$scope','$http','baseUrl','$timeout',function($scope,$http,baseUrl,$timeout){
+            $scope.loginData = {
+                username:'',
+                password:'',
+                content:'你输入的用户名或密码不正确，请重新输入！',
+                isValid:false
+            }
+            $scope.loginBtn = function(){
+                console.log('login->');
+                $scope.goin();
+            }
+
+            $scope.superLogin = function(){
+                console.log('super->');
+                $scope.goin();
+
+            }
+            
+            $scope.goin = function(){
+                var isValid = $scope.loginData.username && $scope.loginData.password;
+                if(isValid){
+                    console.log('goin->进入',$scope.loginData.username,$scope.loginData.password);
+                    var obj = {"usersName":$scope.loginData.username,"usersPassword":$scope.loginData.password}
+                    $http({
+                        methods:'get',
+                        params:obj,
+                        url: baseUrl + 'getpersonnel'
+                        
+                    }).then(function(res){
+                        $scope.dataset = res.data;
+                        console.log('res->',res.data,'dataset->',$scope.dataset);
+
+                        // 判断是否为员工
+                        var user,pwd,store;
+
+                        user = $scope.dataset.usersName;
+                        pwd = $scope.dataset.usersPassword;
+                        store = $scope.dataset.usersStore;
+
+                        // console.log(user,pwd,'loginData.username->',$scope.loginData.username,$scope.loginData.password);
+
+                        if (user == $scope.loginData.username && pwd == $scope.loginData.password) {
+                            console.log('你好' + user + pwd);
+                            // 写入本地存储
+                            window.localStorage.setItem( 'user' , user );
+                            window.localStorage.setItem( 'store' , store ); 
+                            
+                            // 跳转
+                            window.location = '/ProjectFour/ProjectFour/projectFour/src/templates/index.html';
+                            
+                        }else{
+                            $scope.loginData.username = '';
+                            $scope.loginData.password = '';
+                            // 弹窗
+                            $scope.loginData.isValid = true;
+                            $timeout(function(){
+                                $scope.loginData.isValid = false;
+                            },2000)
+
+                        }
+
+                    }); 
+
+                }else{
+                    console.log('空');
+                    $scope.loginData.content = '输入框不能为空，请输入账号密码！'
+                    $scope.loginData.isValid = true;
+                    $timeout(function(){
+                        $scope.loginData.isValid = false;
+                        console.log(124)
+                    },2000);
+
+                }
+            }
+
+
+        }])
+    </script>
+</body>
+</html>

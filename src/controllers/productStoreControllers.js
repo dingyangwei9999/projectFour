@@ -2,36 +2,9 @@ var productStoreApp = angular.module('productStoreApp', []);
 
 
 //打开新增商品界面
-productStoreApp.factory('openProductStore', function () {
+productStoreApp.factory('openProductStoreBjj', function () {
+    // console.log(122)
     return {
-        //延时器用不了
-        // openAddProduct:function(num){
-        //     var _num = parseInt(num.replace(/[^0-9]/ig,""));
-        //     if(_num==0){
-        //         var speed = 0;
-        
-        //         var timer = setInterval(function(){
-        //             speed += 5;
-        //             _num += speed;
-        //             if(_num==500){
-        //                 _num = 500;
-        //             }
-        //         },30)
-        //         num = _num + 'px';
-        //         return num;
-        //     }else{
-        //         var speed = 50;
-        //         var timer = setInterval(function(){
-        //             speed -= 5;
-        //             _num -= speed;
-        //             if(_num==0){
-        //                 _num = 0;
-        //             }
-        //         },30)
-        //         num = _num + 'px';
-        //         return num;
-        //     }
-
         openAddProduct:function(num){
             if(num=="-500px"){
                 num = 0;
@@ -126,7 +99,7 @@ productStoreApp.factory('addTproducts', function () {
                         salePrice : response[i].salePrice,
                         storeNum : response[i].storeNum,
                         unit : response[i].unit,
-                        suppliername : response[i].suppliername,
+                        suppliername : response[i].supplierName,
                         category : response[i].category
                     }
                     dataTproducts.push(obj);
@@ -178,7 +151,7 @@ productStoreApp.factory('addTcategory', function () {
     }
 });
 
-//发送ajax，加载供应商tcategory表格
+//发送ajax，加载供应商supplier表格
 productStoreApp.factory('addTsupplier', function () {
     return {
         addTsupplier:function(http,callback){

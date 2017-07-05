@@ -1,0 +1,116 @@
+
+<div class="grounding" ng-controller="groundController">
+	<div class="groundBtn btn-group col-sm-12">
+	  	<select class="btn dropdown-toggle" data-toggle="dropdown" ng-model="msg.isGround">
+	    	<option value="已上架">已上架</option>
+           	<option value="已下架">已下架</option>
+	  	</select>
+
+	  	<fieldset>
+			<input type="text" placeholder="商品名称/条码/分类">
+	  		<button type="submit" class="btn submit" ng-click="checkBtn()">查询</button>
+	  	</fieldset>
+	</div>
+	<legend></legend>
+
+
+	<div class="bs-docs-example">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>商品名称</th>
+              <th>条码</th>
+              <th>商品分类</th>
+              <th>供应商</th>
+              <th>现有库存</th>
+              <th>单位</th>
+              <th>库存上限</th>
+              <th>库存下限</th>
+              <th>到期日期</th>
+              <th>保质情况</th>
+              <th style="text-align: center;">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+              <td>1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+           	  <td>Otto</td>
+              <td>@mdo</td>
+              <td>@mdo</td>
+              <td style="padding:4px 12px;">
+              	<div class="btn-group">
+                	<button class="btn btn-info dropdown-toggle" data-toggle="dropdown">编辑<span class="caret"></span></button>
+	                <ul class="dropdown-menu">
+	                  <li><a href="#">上架</a><i class="iconfont icon-jia"></i></li>
+	                  <li><a href="#">下架</a><i class="iconfont icon-jian"></i></li>
+	                  <!-- <li class="divider"></li> -->
+	                  <li><a href="#" class="saveBtn btn">保存</a><span class="cancelBtn btn" href="#">取消</span></li>
+	                </ul>
+              	</div>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+              <td>1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+           	  <td>Otto</td>
+              <td>@mdo</td>
+              <td>@mdo</td>
+              <td style="padding:4px 12px;">
+              	<div class="btn-group">
+                	<button class="btn btn-info dropdown-toggle" data-toggle="dropdown">编辑<span class="caret"></span></button>
+	                <ul class="dropdown-menu">
+	                  <li><a href="#">上架</a><i class="iconfont icon-jia"></i></li>
+	                  <li><a href="#">下架</a><i class="iconfont icon-jian"></i></li>
+	                  <!-- <li class="divider"></li> -->
+	                  <li><a href="#" class="saveBtn btn">保存</a><span class="cancelBtn btn" href="#">取消</span></li>
+	                </ul>
+              	</div>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+              <td>1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+           	  <td>Otto</td>
+              <td>@mdo</td>
+              <td>@mdo</td>
+              <td style="padding:4px 12px;">
+              	<div class="btn-group">
+                	<button class="btn btn-info dropdown-toggle" data-toggle="dropdown">编辑<span class="caret"></span></button>
+	                <ul class="dropdown-menu">
+	                  <li><a href="#">上架</a><i class="iconfont icon-jia"></i></li>
+	                  <li><a href="#">下架</a><i class="iconfont icon-jian"></i></li>
+	                  <!-- <li class="divider"></li> -->
+	                  <li><a href="#" class="saveBtn btn">保存</a><span class="cancelBtn btn" href="#">取消</span></li>
+	                </ul>
+              	</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+      	
+      </div>
+
+</div>
