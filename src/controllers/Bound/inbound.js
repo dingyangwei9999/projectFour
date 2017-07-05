@@ -60,7 +60,7 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
 
     //修改
     $scope.oright = function(){
-        if(!$scope.inboundID){
+        if(!$scope.inboundIDs){
            alert('请输入单号');
             return false;
         }
@@ -86,7 +86,7 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
         }
         var obbj = {
                     "productID":$scope.productID,
-                    "inboundID":$scope.inboundID,
+                    "inboundID":$scope.inboundIDs,
                     "reserveNum":$scope.reserveNum,
                     "inbounds":$scope.inbounds,
                     "inboundTime":$scope.inboundTime,
@@ -116,7 +116,7 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
                     && (!$scope.qrCode || obj.qrCode.indexOf($scope.qrCode) > -1)
                     && (!$scope.otboundID || obj.outboundID.indexOf($scope.otboundID) > -1)
                     && (!$scope.productName || obj.productName.indexOf($scope.productName) > -1)
-                    && (!$scope.productID || obj.productID.indexOf($scope.productID) > -1)
+                    && (!$scope.productID1 || obj.productID.indexOf($scope.productID1) > -1)
                 );
                 if(_result){
                     _dataset.push(obj);
