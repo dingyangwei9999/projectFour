@@ -52,7 +52,12 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
             console.log(666)
         })
         alert('删除')
-        window.location.reload();
+        $http.post(baseUrl+'inbound').success(function(res){
+        var attr = res;
+        $scope.dataset = attr;
+        $scope.datasetorigin = attr;
+        })
+        // window.location.reload();
     }
 
 
@@ -98,7 +103,7 @@ mainApp.controller('inBound',['$scope','$http','lan','baseUrl',function($scope,$
             console.log(666)
         })
         alert('编辑成功')
-        window.location.reload();
+        // window.location.reload();
     }
 
 
