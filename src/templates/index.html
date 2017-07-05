@@ -359,13 +359,14 @@
                 }
           
                 $scope.checkBtn = function(){ 
+        // $scope.checkBtn = function(){ 
                     $http({
                         methods:'get',
                         params:{},
-                        url: baseUrl + 'getsupplier',
+                        url: baseUrl + 'getpersonnel',
                     }).then(function(res){
-                        $scope.dataOrign = res;
-                        console.log('res->',res,'dataOrign->',$scope.dataOrign.data[0]);
+                        $scope.dataset = res.data;
+                        console.log('res->',res,'dataset->',$scope.dataset);
 
                     }); 
                 }
